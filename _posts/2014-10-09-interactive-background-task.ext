@@ -1,0 +1,200 @@
+---
+layout: post
+title:  "A kind of interactive background task"
+date:   2014-10-09 15:50:00
+categories: Android AsyncTask
+---
+In Android applications, complicated business logics are normally encapsulated in methods like doXXX() of the business layer. In UI layer, doXXX() methods are invoked inside AsyncTask.doInBackground(). This kind of encapsulation is quite common but with following disadvantages:
+<li>1. intermediate progress inside doXXX() can not be reported to UI layer.</li>
+<li>2. doXXX() is unaware of the AsyncTask so it doesn't care whether the task has been cancelled.</li>
+<li>3. AsyncTask.doInBackground() and other methods of AsyncTask are actually at different logic layer, so define them in one class is confusing.</li>
+
+<br>
+1 and 2 can be overcome but moving the content of doXXX() into AsyncTask.doInBackground(). But this abandons the merits of encapsulation which makes the code hard to be resued.
+
+<br>
+Indeed, only small modification is required to resolve all the issues above, by splitting the definition of AsyncTask into serveral interfaces.
+{% highlight java %}
+public static interface IUiCallback<Result> {
+    public void onPreExecute();
+    public void onPostExecute(Result result);
+    public void onPregressUpdate(int percent);
+    public void onCancelled();
+}
+
+public static interface IBizCallback<Result> {
+    public Result onBusinessLogicAsync(IJob job, Object... params);
+}
+
+public static interface IJob{
+    public boolean isJobCancelled();
+    public void publishJobProgress(int percent);
+    public void cancelJob();
+}
+{% endhighlight %}
+
+<br>
+Concrete definition of IUiCallback should be implemented in UI layer(Activity, Fragment, etc.), while IBizCallback should be definied inside business layer classes. So if you application is big enough that there are different developers on business layer and UI layer, they can focus on one interface only. 
+As the first parameter of IBizCallback.onBusinessLogicAsync() is IJob, which can be used to check the cancell state of the task, in order to quit the task gracefully.
+
+<br>
+To submit your task, use ConcurrentMgr.submitJob() defined as below:
+{% highlight java %}
+public static IJob submitJob(IBizCallback bizCallback, IUiCallback uiCallback, Object... params){
+    if(Looper.getMainLooper() != Looper.myLooper()){
+        throw new IllegalStateException("submitJob() must be invoked on main thread");
+    }
+
+    JobAsyncTask jobAsyncTask = new JobAsyncTask(bizCallback, uiCallback);
+    return (IJob)jobAsyncTask.executeOnExecutor(sExecutorService, params);
+}
+
+private static ExecutorService sExecutorService = // your customized executor;
+
+/**
+ * IBizCallback, IUiCallback and IJob are based on JobAsyncTask.
+ */
+private static class JobAsyncTask<Result> extends AsyncTask<Object, Integer, Result> implements IJob {
+    private WeakReference<IUiCallback<Result>> mUiCallbackRef;
+    private WeakReference<IBizCallback<Result>> mBizCallbackRef;
+
+    public JobAsyncTask(IBizCallback<Result> bizCallback, IUiCallback<Result> uiCallback){
+        mBizCallbackRef = new WeakReference<IBizCallback<Result>>(bizCallback);
+        mUiCallbackRef = new WeakReference<IUiCallback<Result>>(uiCallback);
+    }
+
+    @Override
+    public boolean isJobCancelled() {
+        return isCancelled();
+    }
+
+    @Override
+    public void cancelJob() {
+        cancel(true);
+    }
+
+    @Override
+    public void publishJobProgress(int percent) {
+        publishProgress(percent);
+    }
+
+    @Override
+    protected Result doInBackground(Object... params) {
+        IBizCallback<Result> bizCallback = mBizCallbackRef.get();
+        if(null != bizCallback) {
+            return bizCallback.onBusinessLogicAsync(this, params);
+        }else{
+            return null;
+        }
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        IUiCallback<Result> uiCallback = mUiCallbackRef.get();
+        if(null != uiCallback) {
+            uiCallback.onPreExecute();
+        }
+    }
+
+    @Override
+    protected void onPostExecute(Result result) {
+        super.onPostExecute(result);
+        IUiCallback<Result> uiCallback = mUiCallbackRef.get();
+        if(null != uiCallback) {
+            uiCallback.onPostExecute(result);
+        }
+    }
+
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        super.onProgressUpdate(values);
+        IUiCallback<Result> uiCallback = mUiCallbackRef.get();
+        if(null != uiCallback) {
+            uiCallback.onPregressUpdate(values[0]);
+        }
+    }
+
+    @Override
+    protected void onCancelled() {
+        super.onCancelled();
+        IUiCallback<Result> uiCallback = mUiCallbackRef.get();
+        if(null != uiCallback) {
+            uiCallback.onCancelled();
+        }
+    }
+
+    @Override
+    protected void onCancelled(Result result) {
+        super.onCancelled(result);
+        IUiCallback<Result> uiCallback = mUiCallbackRef.get();
+        if(null != uiCallback) {
+            uiCallback.onCancelled();
+        }
+    }
+}
+{% endhighlight %}
+
+<br>
+The man behind the scene is JobAsyncTask, it extends AsyncTask and implements IBizCallback, IUiCallback and IJob all in one place.
+WakeReference is used here to avoid memory leak, as background tasks may have longer life cycle than its related UI components.
+
+<br>
+Then in our application code, business methods can be definied in such a way:
+{% highlight java %}
+public class UserLogicBusiness{
+    public IJob login(IUiCallback<LoginResult> uiCallback, String name, String password){
+        IBusinessCallback<LoginResult> bizCallback = new IBusinessCallback<LoginResult>(){
+            @Override
+            public LoginResult onBusinessLogic(IJob job, Object... params){
+                // do your business here.
+                // use job.isCancelled() to check state.
+                // use job.publishProgress(int) to publish progress.
+                UserLoginRequest request = new UserLoginRequest(name, password);
+                LoginResult result = reqest.call();
+                if(job.isCancelled()){ return null; }
+                job.publishProgress(50);
+
+            	SharedPreferenceHelper.saveLogin(loginResult);
+            	job.publishProgress(100);
+            	return loginResult;
+            }
+        };
+        return ConcurrentMgr.submitJob(bizCallback, uiCallback, someParam);
+    }
+}
+{% endhighlight %}
+
+<br>
+Correspondingly, in UI layer:
+{% highlight java %}
+// inside Activity ...
+
+/**
+ * the login button
+ */
+private final OnClickListener mOnLoginClickListener = new OnClickLitener(){
+    @Override
+    public void onClick(View view){
+        mJob = UserLogicBusiness.getInstance().login(mLoginUiCallback, username, password);
+    }
+};
+
+private final IUiCallback<LoginResult> mLoginUiCallback = new IUiCallback<LoginResult>(){
+	@Override
+    public final void onPostExecute(LoginResult result) {
+        if(null != result){
+        	// change UI
+        }else{
+        	// show error
+        }
+    }
+}
+
+@Override
+public void onDestroy(){
+    ....
+    // best practice, cancel the background task when destroying the Activity.
+    if(null != mJob) mJob.cancel(true);
+}
+{% endhighlight %}
