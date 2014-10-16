@@ -3,6 +3,7 @@ layout: post
 title:  "A kind of interactive background task"
 date:   2014-10-09 15:50:00
 categories: Android AsyncTask
+excerpt: A simple concurrent management interactive background tasks based on AsyncTask.
 ---
 In Android applications, complicated business logics are normally encapsulated in methods like doXXX() of the business layer. In UI layer, doXXX() methods are invoked inside AsyncTask.doInBackground(). This kind of encapsulation is quite common but with following disadvantages:
 <li>1. intermediate progress inside doXXX() can not be reported to UI layer.</li>
