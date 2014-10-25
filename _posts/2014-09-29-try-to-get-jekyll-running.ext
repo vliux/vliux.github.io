@@ -2,6 +2,6 @@
 layout: post
 title:  "Try to get Jekyll running!"
 date:   2014-09-29 22:08:23
-categories: 1st blog
+categories: tech
 ---
 I'd like to make a blog for myself, and I found Github Pages. Pages uses Jekyll, so I need to get familiar with it. The first task is to make it running, and it's done now!
