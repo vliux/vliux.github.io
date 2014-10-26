@@ -19,8 +19,8 @@ You may find the name a little bit wierd. I'm not good at naming people, especia
 <br><br>
 
 Allysia Moorea at archery(painted by professional comic pens):
-<img src='/images/allysia_at_archery.vliux.jpg' alt='Allysia Moorea at archery'/>
+<img src='/images/allysia_at_archery.vliux.jpg' alt='Allysia Moorea at archery' width='{{ site.data.vliux.imgwidth}}'/>
 <br><br>
 
 Below is the first pencil draft of the character. As the stroke of pencil is wierd under camera, I changed to pens after it:
-<img src='/images/allysia_moorea_1st_draft.vliux.jpg' alt='Allysia Moorea at the 1st design'/>
+<img src='/images/allysia_moorea_1st_draft.vliux.jpg' alt='Allysia Moorea at the 1st design' width='{{ site.data.vliux.imgwidth }}'/>
