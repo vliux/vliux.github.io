@@ -20,8 +20,10 @@
             <p class="intro">{% if page.description %}{{ page.description }}{% else %}{{ page.tagline }}{% endif %}</p>
           </hgroup>
         </header>
-
-        {{ content }}
+        
+        <div class="content">
+            {{ content }}
+        </div>
 
       <!-- vliux: google+ share -->
       <<script src="https://apis.google.com/js/platform.js" async defer></script>

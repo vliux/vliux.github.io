@@ -441,6 +441,10 @@ header.site-header nav {
     
     min-height: 500px;
     
+    .content {
+        font-size: $fs5;
+    }
+    
     .deets {
         position: relative;
         top: 45px;
