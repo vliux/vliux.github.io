@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "Battery monitoring on user phone"
+date:   2015-01-29 20:39:00
+categories: Android
+---
+
+There are much more differences between mobile application development and servier-side/PC-client development. Mostly because the system resources are limitied on mobile devices. Battery is one of such resources which direclty impacts the user experiences. However, it's quite easy for a novice to write code with low efficiency and high power consumption. Even experienced programmers may produce code which occasionaly drains the battery under some circumstances. In a result, the team will soon be immersed by mass of complains from users.
+<br><br>
+
+Things get more complicated if the app is large-scaled, and it's difficult to reproduce the abnormal power consumption cases in test environment. So, a mechanism is required to monitor the consumption on end-user's phones --- the production environment. With the machnism, we should be able to obtain information about the circumstance, which helps to identify the hotspots.
+<br><br>
+
+Generally speaking the monitoring incluses three phases:
+<li>1. Consumption checking: calculate the power usage of current application periodically.</li>
+<li>2. Behavior detection: collects the behaviors of the application which may lead to battery drain.</li>
+<li>3. Reporting: Report the collected information of 1 and 2 to a backend server for further analysis.</li>
+<br><br>
+
+<h3>Check battery consumption periodically</h3>
+Implement the power consumtion calculation in a service, and then use AlarmManager to startService() repeatedly, 24 hours etc. In order to minizie the side-effect of the service, use AlarmManager.setInexactRepeating() instead of setRepeating(). 
+<br><br>
+
+On Android devices before 4.4 Kitkat, as the BATTERY_STATS permission is still applicable for 3rd party applications, thelogic of <a href="https://android.googlesource.com/platform/packages/apps/Settings/+/ce258caa4aa5cd1ea66b839ee7231c76fcfbc8d6/src/com/android/settings/fuelgauge/BatteryStatsHelper.java">BatteryStatsHelper</a> can be copied and applied into your application, which calculates the consumption from processes, wakelocks, WiFi traffic and sensors, not only your application, but also others installed. The Helper gets the data from an Android system service named BatteryStats. As BatteryStats is a hidden class, you need to rely on Java reflection to invoke methods and fetch field values.
+<br><br>
+
+On Android versions greater or equal to 4.4, you can use other methodologies to simulate the actual consumption. For example, get the CPU time from files in /proc. The data is not as accurate as from BatteryStats, but better than nothing.
+<br><br>
+
+With the consumpton data, a series of bars can be tested against. If any of the following bars is reached, the consumption is regarded as abnormally high. You can add any additional criteria for a broder checking. 
+<li>the background power consumption of your application process is among the topest N of all the applications on the given phone.</li>
+<li>the power consumption from wake locks and cpu is more than X% greater than last check.</li>
+(You need to decide the exact number of N and X for your business scenario)
+<br><br>
+
+The data from battery checking are not precise, but if you collects them from a large number of user devices, you can figure out the consumption level of current application version. Use them as a criterion verify whether the refactory of code decreases the cosumption or not.
+
+<h3>Behavior detection</h3>
+Consumption data don't tell you which part of your code eats up the battery. To get that information, use local version of XposedBridge. First identify the API which may lead to high consumption, and hook them. In your hooked method callback, collect the information as below:
+<br><br>
+<li><br>ActivityThread.handleReceiver()</br>: concrete Broadcast receiver classes called, times of invokation, and execution time-span of onReceive().</li>
+<li><br>AlarmManager.setRepeating(), .setInExactRepeating(), .setExact()</br>: whether it's a wake-up alarm, the interval time-span, the target of PendingIntent. </li>
+<li><br>AsyncTask.doInBackground()</br>: concrete AsyncTask classes, the times and length of doInBackground() invokation.</li>
+<li><br>Binder.transact()</br>: concrete Binder classes, the times and length of the invokation. This covers the cases of inter-process Service execution.</li>
+<li><br>ContentProvider.query(), .insert(), .update(), .delete()</br>: concrete ContentProvider classes, the times and length of invokation.</li>
+<li><br>SensorEventListener.onSensorChanged(), .onAccuracyChanged()</br>: concrete classes of SensorEventListener, the times and length of invokations.</li>
+<li><br>Service.start()</br>: concrete classes of Service, the times and length of the invokations.</li>
+<li><br>Thread.start()</br>: concrete classes of Thread, the times and length of the invokations.</li>
+<li><br>WakeLock.acquire(), .release()</br>: the callers of the methods, the wakelock tags, the length of holding the wakelocks.</li>
+<li><br>WifiManager.startScan()</br>: the callers of the method, the times and length of the invokations.</li>
+<li><br>WifiManager.createWifiLock()</br>: the caller of the method, the type of wifi lock, the times of the invokations.</li>
+
+There should be more points beyond this list for hooking, like network operations. Also, the above only includes the points at Android SDK level. If your application relies on some 3rd party libraries, you can also hook APIs there, to have the information more accurate, because those 3rd-party APIs may be closer to the app level code.
+
+<h3>Analysis</h3>
+Collecting the consumption and behavior data is only the first step to our purpose. By analyzing a large number of this kind of data should be able to help us pick out the most suspicious points inside the code. Today I have just taken the first step, I will come back to your when I have collected more data and have some experiences of analysis stories.
+
+
+
