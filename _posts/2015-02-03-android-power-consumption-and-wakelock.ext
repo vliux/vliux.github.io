@@ -1,0 +1,99 @@
+---
+layout: post
+title:  "Android power consumption and WakeLock"
+date:   2015-02-03 18:01:00
+categories: Android
+---
+
+Battery resource is precious in mobile devices. Android system will put the screen, keyboard(if any) and CPU to sleep if there is no user activity for a given time span. As the device may enter sleep mode at any time, we as programmers need to manage WakeLocks manually for long-term operations.
+<br><br>
+<h3>Do not use WakeLock frequently</h3>
+Any usage of WakeLock has impact on battery power, so care must be taken. It's not proper to use WakeLock in following circumstance(s):
+<li>Foreground activity need to proceed for a long time with screen on, like a media player. If the app is not neccessary to keep running at background, then we should apply WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON instead, or use android:keepScreenOn="true" in the layout file instead. WindowManager will automatically handle the lifecycles of WakeLocks for us during Acitivity switches, and we don't need to request additional permission WAKE_LOCK.</li>
+<br><br>
+Under belowing conditions, the use of WakeLock should be minimized:
+<li>The results of the background calculation is not sensible from foreground, or any delay of the result doesn't affect the main functionalities. An example is a news app which synchronizes latest news at background. However, as the app is not at foreground, users may not be highly interested at the news. So too much synchronization is not as beneficial as expected, while consuming too much power and network resources, which offends the user greatly.</li>
+<br><br>
+
+<h3>Types of WakeLocks</h3>
+The first parameter of PowerManager.newWakeLock() specifies the type of WakeLock:
+<li>PARTIAL_WAKE_LOCK: keeps CPU on, doesn't keep screen and keyboard. It should be used for long-time running background tasks, like Service.</li>
+<li>SCREEN_DIM_WAKE_LOCK: keeps CPU on, screen on but dim, doesn't keep keyboard. Mostly we should use FLAG_KEEP_SCREEN_ON instead of using this type of WakeLock directly.</li>
+<li>SCREEN_BRIGHT_WAKE_LOCK: keeps CPU and screen on, doesn't keep keyboard. Mostly we should use FLAG_KEEP_SCREEN_ON instead of using this type of WakeLock directly.</li>
+<li>FULL_WAKE_LOCK: keeps CPU, screen, and keyboard on. Mostly we should use FLAG_KEEP_SCREEN_ON instead of using this type of WakeLock directly.</li>
+Despite PARTIAL_WAKE_LOCK, all other 3 types of WakeLocks will be automatically released by Android system when power button is pressed by user. With PARTIAL_WAKE_LOCK, when power button is pressed, screen is put off, but CPU will still keep running until the WakeLock is explicitly released. So in case a partial WakeLock is released too late or not released at all, the device keeps in high power-consumption mode, in a very short time the battery will be drained.
+<br><br>
+
+<h3>Simple case to ensure WakeLock release</h3>
+A simple solution to ensure the release of WakeLock is try-catch-finally pattern.
+{% highlight java %}
+WakeLock wakeLock =
+  PowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, “SyncWakeLock”);
+try{
+    // 关闭Reference counted属性
+wakeLock.setReferenceCounted(false);
+// 使用带有timeout的acquire函数
+    wakeLock.acquire(60*1000);
+    // 此处省略业务代码若干
+} catch(SomeException e){
+    // 异常处理
+} finally{
+    if(wakeLock.isHeld()){
+    wakeLock.release();
+}
+}
+{% endhighlight %}
+In code above, we use acquire(long timeout) instead of acquire(). It is used to ensure that for any case that release() is not called, the WakeLock will still be released by system after 'timeout' milli-seconds.
+<br><br>
+In addition, setReferenceCounted(false) is invoked to close the reference-counted property. If it's off, no matter how many times a WakeLock is acquired, only one release() is required to withdrawn the WakeLock. On contrast, if the property is on, the WakeLock object keeps a reference counter, if and only if the number of invokations of release() is equal to acquire(), the WakeLock will be released. As the property is on by default, so I recommend to close it before acquiring the WakeLock in most normal cases.
+<br><br>
+
+<h3>WakefulBroadcastReceiver and its drawbacks</h3>
+Normally, a background task is triggered from a broadcast. If we don't obtain a WakeLock, the device may get to sleep at any point right after onReceive(). So if a Serivce is started from onReceive(), we need to acquire a WakeLock inside onReceive(), and release the WakeLock in Service when the task is completed. As the acquiring and releasing of WakeLocks are distributed among different software modules, the complexity of code logic thus increases a lot. Officially Android SDK suggests the using of a utility class named WakefulBroadcastReceiver to handle this issue.
+<br><br>
+The static method startWakefulService() of WakefulBroadcastReceiver (WBR) inserts an integer into the extra field of the Intent, which relates to the newly obtained WakeLock object. In Service class, after the completion of business logic, just pass the Intent object from onStartCommand() paramters to completeWakefulIntent(), which reads out the integer value inserted before from the Intent, gets the WakeLock and releases it. 
+<br><br>
+It should be noted that, the hosting process of Service may be killed by system at any time due to memory restriction. If it's a START_REDELIVER_INTENT Service, Android will restart it at proper time and re-deliver the same Intent object to the Service. However, as previous process is killed, the related WakeLocks have all been released (link-to-death), and the static fields of WBR have been reseted. So calling completeWakefulIntent() in a restarted Service is not only meaningless, but may mistakenly release the WakeLock held by another module (with the same integer value). In such a case, we should take case of it inside onStartCommand(): 
+{% highlight java %}
+private WakeLock mWakeLock;
+
+@Override
+protected void onStartCommand(Intent intent, int flags, int startId){
+    if(null != mWakeLock){
+        // doesn't accept new request as we are handling one already.
+        return START_REDELIVERY_INTENT;
+    }
+
+    // obtain the WakeLock myself.
+    mWakeLock =
+       PowerManager.newWakeLock(PARTIAL_WAKE_LOCK, “tag”);
+    mWakeLock.setReferenceCounted(false);
+    mWakeLock.acquire(60*1000);
+    
+    if((flags & START_FLAG_REDELIVERY) == 0)){
+        // Service is started by WBR, not restarted by system, so release the WakeLock from WBR
+        WakefulBroadcastReceiver.completeWakefulIntent(intent);
+    }
+    
+    // asynchronously execute the task
+    ConcurrentManager.submit(new Runnable(){
+        @Override
+        public void run(){
+            // business logic ommited...
+            synchronized(mWakeLock){
+                if(mWakeLock.isHeld()){
+                    mWakeLock.release();
+                    mWakeLock = null;
+                }
+            }
+        }
+    });
+    return START_REDELIVERY_INTENT;
+}
+{% endhighlight %}
+So the main purpose of using WBR is to ensure that device will not sleep during transition from Receiver to Service.
+<br><br>
+In the sample of Android SDK about WBR, IntentService is used with WBR. However, as IntentService.onHandleIntent() doesn't have a parameter like the second parameter 'flags' of onStartCommand(), we are unable to identify whether the Service is started from Receiver, or re-started by Android system, which may cause the wrong releasing of WakeLock mentioned above. 
+
+<h3>Summary</h3>
+Using WakeLock is more complicated than we normally thinkg, especially when the code is splited into many different modules and concurrent is applied. So please think WakeLock as the last solution to use. For almost all foreground cases, use FLAG_KEEP_SCREEN_ON and rely on WindowManager to handle the locks for us; for background tasks, the last but effective defence is to use acquire(long timeout) instead of acquire().
