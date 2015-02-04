@@ -9,7 +9,7 @@ Battery resource is precious in mobile devices. Android system will put the scre
 <br><br>
 <h3>Do not use WakeLock frequently</h3>
 Any usage of WakeLock has impact on battery power, so care must be taken. It's not proper to use WakeLock in following circumstance(s):
-<li>Foreground activity need to proceed for a long time with screen on, like a media player. If the app is not neccessary to keep running at background, then we should apply WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON instead, or use android:keepScreenOn="true" in the layout file instead. WindowManager will automatically handle the lifecycles of WakeLocks for us during Acitivity switches, and we don't need to request additional permission WAKE_LOCK.</li>
+<li>Foreground activity need to proceed for a long time with screen on, like a media player. If the app is not neccessary to keep running at background, then we should apply FLAG_KEEP_SCREEN_ON flag instead, or use android:keepScreenOn="true" in the layout file instead. WindowManager will automatically handle the lifecycles of WakeLocks for us during Acitivity switches, and we don't need to request additional permission WAKE_LOCK.</li>
 <br><br>
 Under belowing conditions, the use of WakeLock should be minimized:
 <li>The results of the background calculation is not sensible from foreground, or any delay of the result doesn't affect the main functionalities. An example is a news app which synchronizes latest news at background. However, as the app is not at foreground, users may not be highly interested at the news. So too much synchronization is not as beneficial as expected, while consuming too much power and network resources, which offends the user greatly.</li>
@@ -17,10 +17,18 @@ Under belowing conditions, the use of WakeLock should be minimized:
 
 <h3>Types of WakeLocks</h3>
 The first parameter of PowerManager.newWakeLock() specifies the type of WakeLock:
-<li>PARTIAL_WAKE_LOCK: keeps CPU on, doesn't keep screen and keyboard. It should be used for long-time running background tasks, like Service.</li>
-<li>SCREEN_DIM_WAKE_LOCK: keeps CPU on, screen on but dim, doesn't keep keyboard. Mostly we should use FLAG_KEEP_SCREEN_ON instead of using this type of WakeLock directly.</li>
-<li>SCREEN_BRIGHT_WAKE_LOCK: keeps CPU and screen on, doesn't keep keyboard. Mostly we should use FLAG_KEEP_SCREEN_ON instead of using this type of WakeLock directly.</li>
-<li>FULL_WAKE_LOCK: keeps CPU, screen, and keyboard on. Mostly we should use FLAG_KEEP_SCREEN_ON instead of using this type of WakeLock directly.</li>
+<li><strong>PARTIAL_WAKE_LOCK:</strong> <br>
+keeps CPU on, doesn't keep screen and keyboard. It should be used for long-time running background tasks, like Service.</li>
+
+<li><strong>SCREEN_DIM_WAKE_LOCK:</strong> <br>
+keeps CPU on, screen on but dim, doesn't keep keyboard. Mostly we should use FLAG_KEEP_SCREEN_ON instead of using this type of WakeLock directly.</li>
+
+<li><strong>SCREEN_BRIGHT_WAKE_LOCK:</strong><br>
+keeps CPU and screen on, doesn't keep keyboard. Mostly we should use FLAG_KEEP_SCREEN_ON instead of using this type of WakeLock directly.</li>
+
+<li><strong>FULL_WAKE_LOCK:</strong> <br>
+keeps CPU, screen, and keyboard on. Mostly we should use FLAG_KEEP_SCREEN_ON instead of using this type of WakeLock directly.</li>
+<br>
 Despite PARTIAL_WAKE_LOCK, all other 3 types of WakeLocks will be automatically released by Android system when power button is pressed by user. With PARTIAL_WAKE_LOCK, when power button is pressed, screen is put off, but CPU will still keep running until the WakeLock is explicitly released. So in case a partial WakeLock is released too late or not released at all, the device keeps in high power-consumption mode, in a very short time the battery will be drained.
 <br><br>
 
@@ -30,18 +38,18 @@ A simple solution to ensure the release of WakeLock is try-catch-finally pattern
 WakeLock wakeLock =
   PowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, “SyncWakeLock”);
 try{
-    // 关闭Reference counted属性
-wakeLock.setReferenceCounted(false);
-// 使用带有timeout的acquire函数
+    // turn off Reference counted
+    wakeLock.setReferenceCounted(false);
+    // use acquire() with timeout parameter
     wakeLock.acquire(60*1000);
-    // 此处省略业务代码若干
+    // omit business logic ...
 } catch(SomeException e){
-    // 异常处理
+    // exception handing
 } finally{
     if(wakeLock.isHeld()){
     wakeLock.release();
 }
-}
+
 {% endhighlight %}
 In code above, we use acquire(long timeout) instead of acquire(). It is used to ensure that for any case that release() is not called, the WakeLock will still be released by system after 'timeout' milli-seconds.
 <br><br>
@@ -65,8 +73,7 @@ protected void onStartCommand(Intent intent, int flags, int startId){
     }
 
     // obtain the WakeLock myself.
-    mWakeLock =
-       PowerManager.newWakeLock(PARTIAL_WAKE_LOCK, “tag”);
+    mWakeLock = PowerManager.newWakeLock(PARTIAL_WAKE_LOCK, “tag”);
     mWakeLock.setReferenceCounted(false);
     mWakeLock.acquire(60*1000);
     
