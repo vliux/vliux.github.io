@@ -65,15 +65,18 @@ setWindow(RTC, currentMillis, 15*60*1000L, <PendingIntent>);
 {% endhighlight %}
 Note that RTC type is used instead of RTC_WAKEUP. As there is no network activity during system sleep, so billing that time-span is meaningless. With the scheduling window, it is assured that billing task will be executed at some points between 15 and 30 minutes later. The solution takes care of both the business requirements and power conservation.
 
-JobScheduler的原理
-一般来说，当且仅当全部前置条件都满足时业务逻辑的执行才有意义。在传统的Alarm机制下，当注册的执行时间点到达后，系统会唤醒app进程并触发对应的component，但是它并不关心业务的前置条件是否满足。因此存在较大的概率，即进程被激活后，业务逻辑判断前置条件不满足后就直接退出了。对于这种情况，进程的唤醒完全是一种浪费。如果能将前置条件的判断前移到系统常驻服务内，任何一个前置条件的不满足即可避免app进程的启动。这也是JobScheduler设计和实现的思路。
-也正是因为这个设计原理，要实现JobScheduler的向后兼容会比其他功能点要麻烦很多。如果像AppCompat那样在本进程内实现JobScheduler的功能，就丧失了它带来的好处 --- 业务前置条件的判断还是在app进程内完成，也就是说app进程还是必须事先存在。举个反面的例子，JobSchedulerCompat 项目(https://github.com/evant/JobSchedulerCompat) 。经过研读代码发现其在耗电上本身就存在很大问题。在小于Android 5.0的版本上，由于大量依赖BroadcastReceiver和WakeLock，且通过setComponentEnabledSetting()设置对应component的flag为DONT_KILL_APP(app进程更不容易被系统回收)，这就使得使用该库将比不使用更加耗电。
-JobScheduler和AlarmManager相比有如下区别：
-1.  更少的耗电量。
-通过观察JobInfo.Builder的API可以发现，JobScheduler适用于对触发时机无严格要求的后台任务；如果是前台任务，因为调度的不确定性，不适合使用。
-2.  失败重试机制。
-通过setBackoffCriteria()方法设置重试策略。对于重复触发的任务，需要注意失败重试的调度和任务本身的调度容易混淆，因此建议仅将重试机制应用于单次运行的任务。
-3.  设备重启后调度状态仍旧保持。
-通过AlarmManager注册的任务无法持久化，当设备重启后注册信息全部丢失。为了解决这个问题，app需要注册收听BOOT广播，在Receiver中再次注册任务。通过JobScheduler注册的任务则对设备无感知，减轻了应用开发工作量。
-总结
-总体来说，任何的前台任务，都请使用Handler来处理，不仅简单直观，而且副作用少危害小。对于后台任务，只要对调度时机的要求不是十分严格，在Android 5.0及以上版本都应该使用JobScheduler来管理任务；在4.4及以下版本则使用AlarmManag的InExact触发模式。对于触发时间准确性需求较高的后台任务，请务必首先考虑是否能通过算法将其降级，通过使用JobScheduler或者AlarmManager来设置执行窗口。一旦app中需要使用WAKEUP类型且Exact调度模式的任务时，就要十分警觉，因为用户很可能因为app过于耗电而将其卸载。
+<h3>The principle of JobScheduler</h3>
+Generally speaking, a task should be started only when all the prerequisites are fulfilled. Under traditional AlarmManager mechanism, Android system wakes up the relevant app components at the triggering point, without any consideration of the prerequisite. There are grealy possibilities that the task discovers that some prerequisites are not fulfilled right after being started. In such a case the task checks the conditions and quits immediatelly, which is totally a waste of power resources. If the prerequisites checking can be moved into a system service(system service process doesn't get killed), any un-fulfilling of conditions eliminates the necessity of app process creation and components activation. This is actually the design of JobScheduler. 
+<br><br>
+With this design, it's not easy to implement a compatible version of JobScheduler for old Android versions. If we make it the way as AppCompat, then it won't provide any benefit --- the checking of prerequisites is still inside app process, so that Android system still needs to create the app process as the first step no matter whether the conditions are met or not. An negative example of this is the JobSchedulerCompat project (https://github.com/evant/JobSchedulerCompat). The library itself has severe power issues. For Android version less than Lollipop, as it depends greatly on WakefulBroadcastReceivers and WakeLocks, as well as invoking setComponentEnabledSetting(DONT_KILL_APP) which makes the app process less likely to be killed, using the library will consume more power resources, which is a paradox and self-contradiction.
+<br><br>
+Compared with AlarmManager, JobScheduler has following features:
+<li><strong>less power consumption:</strong><br>
+    It is suitable for background tasks without precise triggering time spots. It's not recommanded for foreground tasks, as the un-predictable of scheduling.</li>
+<li><strong>back-off mechanism:</strong><br>
+    set back-off policy with setBackOffCriteria(). However, back-off policy is easy to be confused on repeating tasks, so only applying back-off for single-time tasks.</li>
+<li><strong>scheduling state persistant:</strong><br>
+    Tasks registered with AlarmManager will not exist after system reboot. To solve this issue, app develpers must register a receiver for reboots, and register tasks again inside that Receiver. JobScheduler persists the data across device reboots so there is no need to worry about that.
+
+<h3>Summary</h3>
+For any foreground task, use Handler as it's more simple, intuitive and less likely to be harmful. For background tasks without strict time requirement, use JobScheduler API on Android 5.0, and InExact mode through AlarmManager API on previous Android versions. For background tasks which seems like to be with accurate timing requirement, consider whether the requirement can be degraded by any algorithm with JobScheduler or timing window on AlarmManager. As app developer, we should be sensitive to tasks of both Wakeup type and Exact mode, as it increases the possibility of uninstallation of the app by users greatly.
