@@ -1,4 +1,4 @@
-title:            vliux on software
+title:            A software engineer's happy life
 tagline:          A beautiful theme.
 description:      The footprint of vliux.
 canonical: http://vliux.me
@@ -12,8 +12,8 @@ owner:
   twitter:        vliux
   github:         vliux
   instagram:      vliux
-  dribbble:       coletownsend
-  disqus:         
+  dribbble:       
+  disqus:         vliuxonsoftware
   location:       "Hangzhou, China"
   # Plug in your disqus shortname!
 
