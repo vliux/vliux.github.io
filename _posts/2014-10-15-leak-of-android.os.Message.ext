@@ -4,6 +4,7 @@ title:  "Leak of android.os.Message"
 date:   2014-10-15 15:50:00
 categories: Android
 excerpt: Explore into Handler and Message, which could make your Andorid applicaion memory leak.
+comments: true
 ---
 It's quite normal for an Android application developer to write such code:
 {% highlight java %}

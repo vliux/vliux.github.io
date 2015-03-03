@@ -3,6 +3,7 @@ layout: post
 title:  "Battery monitoring on user phone"
 date:   2015-01-29 20:39:00
 categories: Android
+comments: true
 ---
 
 There are much more differences between mobile application development and servier-side/PC-client development. Mostly because the system resources are limitied on mobile devices. Battery is one of such resources which direclty impacts the user experiences. However, it's quite easy for a novice to write code with low efficiency and high power consumption. Even experienced programmers may produce code which occasionaly drains the battery under some circumstances. In a result, the team will soon be immersed by mass of complains from users.

@@ -3,6 +3,7 @@ layout: post
 title:  "Android power consumption and WakeLock"
 date:   2015-02-03 18:01:00
 categories: Android
+comments: true
 ---
 
 Battery resource is precious in mobile devices. Android system will put the screen, keyboard(if any) and CPU to sleep if there is no user activity for a given time span. As the device may enter sleep mode at any time, we as programmers need to manage WakeLocks manually for long-term operations.
