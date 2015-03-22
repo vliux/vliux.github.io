@@ -10,4 +10,5 @@ I have thoroughly devoted to Android application development for more than 2 yea
 
 In spare time after work, I make applications for myself, or for some of my friends running their business. [GestureCut](https://play.google.com/store/apps/details?id=org.vliux.android.gesturecut) is the first Android application I developed and released alone, which will not be the last. 
 
-I'm eager to learn, eager to grow with anybody who has expertises especially in Android platform.
+I love travelling. We take journey to 1 or 2 countries every year. I also like photography. Although I'm not good at it, it doesn't stop me from enjoying the photos from others --- that's why I really love image-based social media as Instagram, EyeEm, and Tumblr.
+ 
