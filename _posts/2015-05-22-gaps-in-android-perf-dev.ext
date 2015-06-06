@@ -6,13 +6,14 @@ categories: android
 comments: true
 ---
 
-[Chet Haase](https://medium.com/google-developers) has composed a series of good articles about Android performance. Every Android developer should read them. In fact, after reading, and with consideration of my experiences of Android app development, there are many gaps between what skills and knowledges most of the developers accuqire and need to accuqire, in order to write a good app:
+<a href="https://medium.com/google-developers">Chet Haase</a> has composed a series of good articles about Android performance. Every Android developer should read them. In fact, after reading, and with consideration of my experiences of Android app development, there are many gaps between what skills and knowledges most of the developers accuqire and need to accuqire, in order to write a good app:
 <li>There are many profling tools (systrace, traceview, historian, developer mode, ...) But most of the developers don't know when they should use which of them.</li>
 <li>Most of the app developers don't know how to use them, and the learning cost is high in every team.</li>
 <li>With many of the tools you can get a view of what happened, but that's far from locating the code causes the defections.</li>
 <li>Memory issue is the most primary causes of performance problems, and we have been told many times the good rules. But still it's very easy to write code with heavy GC.</li>
 <li>Every device is a village, in which all the apps forms the performance of the device. But it's easy to be forgot when writting code and making profiling. Also there is no easy way to profiling the whole device.</li> 
 
+<br/><br/>
 I believe there will be some technical solution to fill most of the gaps. For our team, we have built a plugin-like system to detect the software defections and runtime, running inside host app's process space. The tool can fill some of the gaps mentioned above and we are trying to fill more.
 
 
