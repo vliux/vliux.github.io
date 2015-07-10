@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "Invoke super method with reflection"
+date:   2015-07-10 13:00:00
+categories: Dalvik Android reflection
+comments: true
+---
+
+Occasionally, I need to invoke a method, which is defined in super class, instead of the derived class, with Java reflection.
+My first approach, which is the wrong approach, was as follows:
+{% highlight java %}
+SuperClass derivedObj = new DerivedClass();
+Method superMethod = derivedObj.getClass().getSuperClass().getDeclaredMethod("funcName");
+superMethod.invoke(derivedObj, args);
+{% endhighlight %}
+
+Unfortunately, with this solution, the method overrided in the DERIVED class was called. It's counter-intuitive, as the Method instance is obtained from the super class. In order to explain this, I need to take a look at the framework implementation:
+{% highlight java %}
+// in java.lang.reflect.Method
+public Object invoke(Object receiver, Object... args) {
+    if (args == null) {
+        args = EmptyArray.OBJECT;
+    }
+    return invokeNative(receiver, args, declaringClass, parameterTypes, returnType, slot, flag);
+}
+{% endhighlight %}
+
+{% highlight c++ %}
+// java_lang_reflect_Method.cpp
+static void Dalvik_java_lang_reflect_Method_invokeNative(const u4* args, JValue* pResult)
+{
+    // ignore thisPtr in args[0]
+    Object* methObj = (Object*) args[1];        // null for static methods
+    ClassObject* declaringClass = (ClassObject*) args[3];
+    int slot = args[6];
+    ......
+    const Method* meth;
+    meth = dvmSlotToMethod(declaringClass, slot);
+    ......
+    result = dvmInvokeMethod(methObj, meth, argList, params, returnType,
+                noAccessCheck);
+    ......
+}
+{% endhighlight %}
+'slot' is the field defined in java.lang.reflection.Method (Kitkat and before versions). For this case, it refers to the index inside the virtual method array, which points to the method definition in VM.
+{% highlight c++ %}
+// AOSP/dalvik/vm/reflect/Reflect.cpp
+Method* dvmSlotToMethod(ClassObject* clazz, int slot)
+{
+    if (slot < 0) {
+        slot = -(slot+1);
+        assert(slot < clazz->directMethodCount);
+        return &clazz->directMethods[slot];
+    } else {
+        assert(slot < clazz->virtualMethodCount);
+        return &clazz->virtualMethods[slot];
+    }
+}
+{% endhighlight %}
+For an overrided method, it has the same slot value for both the super and derived classes. But in my case the 'declaringClass' passed into dvmSlotToMethod() is the derived class. So the method defined in the derived class was found and executed.
+<br><br>
+Fix this problem is not as easy as finding the root cause. The invokeNative() method obtains the class from the object(which is the class definition of the derived class), which prevents any solution from the Java level. In our project we have composed a native method which is similar with invokeNative(), but instead it fetchs the super class definition. If you have any better solution, don't hesitate to tell me :)
