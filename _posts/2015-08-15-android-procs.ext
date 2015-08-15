@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "Android /proc file systemß"
+date:   2015-08-15 21:32:00
+categories: Android proc
+comments: true
+---
+
+I attended AnDevCon Boston 2015 weeks ago. Compared with Google IO, it's much more like a training camp combined with some company advertisements. Fortunately I met Jonathan Levin who is the author of "Android Internals". The content of this blog is mainly from his speech in the conference.
+<br><br>
+
+The /proc file system in Android is in a standard format. That is to say, compared with /sys, its content are equal across different Android devices, so it's safe to have dependencies on /proc in you Android app. 
+<br><br>
+
+We all know that process information is inside /proc/PID. In fact, Linux kernel doesn't have any concept of process. Instead, it cares about thread-group, which is normally named "TGID". When a new thread group (process) is created/forked, kernel assign a new TGID, and the first thread (UI thread in Android) has the same number of TID as TGID. Information about a thread of a given process can be found at /proc/PID/task/TID. If you get into this dir you will find that it has the exact same structure as /proc/PID. 
+The interesting thing is that each thread, which is regarded as "task", is sensible by Linux kernel, so you can directly reach them from /proc.
+{% highlight java %}
+# cd /proc/TID
+// succed, that means /proc/FOO isn't necessarily a process.
+{% endhighlight %}
+But if you try:
+{% highlight java %}
+# ls /proc | grep <TID>
+// no match
+{% endhighlight %}
+
+With /proc/PID/status you can get lots of detail about the process. I need to point out that 'Pid' and 'Tgid' in this file are quit comfusing. In fact the field 'Tgid' is what we think as PID (process ID); while 'Pid' is actually the thread/task ID. Other useful fields in this file for the app developer:
+<ul>
+<li>State: S(sleeping), R(running), T(stopped), D(uninterruptable sleep)</li>
+<li>TracerPid: any ptrace attached process, like strace or gdb</li>
+<li>VmHWN: RSS peak usage (hight-water mark)</li>
+<li>VmRSS: current RSS usage</li>
+<li>VmPeak: virtual memory hight-water mark</li>
+<li>VmSize: current virtual memory</li>
+<li>VmData: size of data segment(heap)</li>
+<li>VmStk: size of thread stacks</li>
+<li>VmExe: size of executable</li>
+<li>VmLib: shared library usage</li>
+<li>VmPTE: page table entries</li>
+<li>Threads: number of threads</li>
+<li>Cpus_allowed: bitmask of CPUS allowed</li>
+<li>voluntary_ctxt_switches: voluntray (system call induced) context switches</li>
+<li>novoluntary_ctxt_switches: nonvoluntary(preemption induced) context switches</li>
+</ul>
+The same values are also stored in machine-readable format in /proc/PID/stat, if you want to obtain these values. 
+<br><br>
+
+To be continued ...
