@@ -9,7 +9,7 @@ comments: true
 I attended AnDevCon Boston 2015 weeks ago. Compared with Google IO, it's much more like a training camp combined with some company advertisements. Fortunately I met Jonathan Levin who is the author of "Android Internals". The content of this blog is mainly from his speech in the conference.
 <br><br>
 
-The /proc file system in Android is in a standard format. That is to say, compared with /sys, its content are equal across different Android devices, so it's safe to have dependencies on /proc in you Android app. 
+The /proc file system in Android is in a standard format. That is to say, compared with /sys, its content are equal across different Android devices, so it's safe to have dependencies on /proc in you Android app. Lots of the files under this directory are useful for helping identifying Android app performance issues.
 <br><br>
 
 We all know that process information is inside /proc/PID. In fact, Linux kernel doesn't have any concept of process. Instead, it cares about thread-group, which is normally named "TGID". When a new thread group (process) is created/forked, kernel assign a new TGID, and the first thread (UI thread in Android) has the same number of TID as TGID. Information about a thread of a given process can be found at /proc/PID/task/TID. If you get into this dir you will find that it has the exact same structure as /proc/PID. 
@@ -24,6 +24,7 @@ But if you try:
 // no match
 {% endhighlight %}
 
+<h3>memory related</h3>
 With /proc/PID/status you can get lots of detail about the process. I need to point out that 'Pid' and 'Tgid' in this file are quit comfusing. In fact the field 'Tgid' is what we think as PID (process ID); while 'Pid' is actually the thread/task ID. Other useful fields in this file for the app developer:
 <ul>
 <li>State: S(sleeping), R(running), T(stopped), D(uninterruptable sleep)</li>
@@ -44,5 +45,14 @@ With /proc/PID/status you can get lots of detail about the process. I need to po
 </ul>
 The same values are also stored in machine-readable format in /proc/PID/stat, if you want to obtain these values. 
 <br><br>
+/proc/PID/maps also stores the memory space occupied by different sections (libraries, stacks, heap, ...). More information can be found in /proc/PID/smaps, like RSS, PSS, clean/dirty memory usage for each section. 
 
-To be continued ...
+<h3>oom_score</h3>
+The kernel scores of the memory usage of each process, and will kill some processes if the system is in low memory. The score for each process is stored in /proc/PID/oom_score. The higher the value it is, the more possible your process will be killed. The score can be adjusted by /proc/PID/oom_adj or oom_score_adj, with different value range (-1000 to 1000 for oom_score_adj). I'm not sure the exact difference between them, but it seems that oom_score_adj which was introduced in Linux kernel 2.6.36, is newer than oom_adj. If the system specify a nagative value in any of these files, the related process is not likely to be terminated, so you may see very large negative value (-1000 etc.) specified for many system services. From an app developer's perspective, by comparing the values in oom_score for all the processes, we can forecast whether our app are more likely to be recycled in the near future.
+
+<h3>fd</h3>
+All the file descriptors opened by current process can be found in /proc/PID/fd. So as the app developer, if you'd like to investigate which files are currently opened, take a look into this directory. For each file named N in 'fd', you can find the offset of the file descriptor in the file as well as the flag from /proc/PID/fdinfo/N.
+
+As Jonathan mentioned, getting familiar with these file systems like /proc and /sys "just opens a door to the broad Linux world" for our app developers. With this knowledge we are not limited to the SDK framework. Hopefully I will use any of the knowledge in my Hurdle project --- by plugin it into your Android application, you can easily detect many performance issues. (shameless advertisement!)
+ 
+
