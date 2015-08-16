@@ -52,7 +52,8 @@ The kernel scores of the memory usage of each process, and will kill some proces
 
 <h3>fd</h3>
 All the file descriptors opened by current process can be found in /proc/PID/fd. So as the app developer, if you'd like to investigate which files are currently opened, take a look into this directory. For each file named N in 'fd', you can find the offset of the file descriptor in the file as well as the flag from /proc/PID/fdinfo/N.
+<br><br>
 
 As Jonathan mentioned, getting familiar with these file systems like /proc and /sys "just opens a door to the broad Linux world" for our app developers. With this knowledge we are not limited to the SDK framework. Hopefully I will use any of the knowledge in my Hurdle project --- by plugin it into your Android application, you can easily detect many performance issues. (shameless advertisement!)
- 
+
 
