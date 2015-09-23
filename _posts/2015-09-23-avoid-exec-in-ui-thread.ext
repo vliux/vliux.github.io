@@ -12,7 +12,6 @@ Several days ago I saw a ANR during monkey test. The ANR trace looked like this.
   at java.lang.ProcessManager.exec(ProcessManager.java:~206)
   - waiting to lock <0x410bc8b0> (a java.util.HashMap) held by tid=25 (Thread-176)
   at java.lang.ProcessBuilder.start(ProcessBuilder.java:195)
-
 "Thread-176" prio=5 tid=25 NATIVE
   at java.lang.ProcessManager.exec(Native Method)
   at java.lang.ProcessManager.exec(ProcessManager.java:209)
