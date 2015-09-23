@@ -9,13 +9,11 @@ comments: true
 Several days ago I saw a ANR during monkey test. The ANR trace looked like this:
 {% highlight java %}
 "main" prio=5 tid=1 MONITOR
-  ...
   at java.lang.ProcessManager.exec(ProcessManager.java:~206)
   - waiting to lock <0x410bc8b0> (a java.util.HashMap) held by tid=25 (Thread-176)
   at java.lang.ProcessBuilder.start(ProcessBuilder.java:195)
 
 "Thread-176" prio=5 tid=25 NATIVE
-  ...
   at java.lang.ProcessManager.exec(Native Method)
   at java.lang.ProcessManager.exec(ProcessManager.java:209)
   at java.lang.Runtime.exec(Runtime.java:168)
@@ -25,13 +23,10 @@ At the exact moment of ANR, Thread-176 was executing a shell command with Runtim
 {% highlight java %}
 public class ProcessManager{
     public Process exec(String[] taintedCommand, String[] taintedEnvironment, File workingDirectory, boolean redirectErrorStream){
-        ...
         // Ensure onExit() doesn't access the process map before we add our
         // entry.
         synchronized (processReferences) {
-            ...
             processReferences.put(pid, processReference);
-
             /*
              * This will wake up the child monitor thread in case there
              * weren't previously any children to wait on.
@@ -52,7 +47,6 @@ private ProcessManager() {
                 watchChildren();
             }
         };
-        ...
     }
 {% endhighlight %}
 
