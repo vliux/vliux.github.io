@@ -1,0 +1,60 @@
+---
+layout: post
+title:  "Avoid Runtime.exec() in UI thread"
+date:   2015-09-23 19:49:00
+categories: Android Process UI
+comments: true
+---
+
+Several days ago I saw a ANR during monkey test. The ANR trace looked like this:
+{% highlight java %}
+"main" prio=5 tid=1 MONITOR
+  ...
+  at java.lang.ProcessManager.exec(ProcessManager.java:~206)
+  - waiting to lock <0x410bc8b0> (a java.util.HashMap) held by tid=25 (Thread-176)
+  at java.lang.ProcessBuilder.start(ProcessBuilder.java:195)
+
+"Thread-176" prio=5 tid=25 NATIVE
+  ...
+  at java.lang.ProcessManager.exec(Native Method)
+  at java.lang.ProcessManager.exec(ProcessManager.java:209)
+  at java.lang.Runtime.exec(Runtime.java:168)
+{% endhighlight %}
+
+At the exact moment of ANR, Thread-176 was executing a shell command with Runtime.getRuntime.exec(), which entered the lock section in ProcessManager.exec():
+{% highlight java %}
+public class ProcessManager{
+    public Process exec(String[] taintedCommand, String[] taintedEnvironment, File workingDirectory, boolean redirectErrorStream){
+        ...
+        // Ensure onExit() doesn't access the process map before we add our
+        // entry.
+        synchronized (processReferences) {
+            ...
+            processReferences.put(pid, processReference);
+
+            /*
+             * This will wake up the child monitor thread in case there
+             * weren't previously any children to wait on.
+             */
+            processReferences.notifyAll();
+            return process;
+        }
+    }
+}
+{% endhighlight %}
+
+So when our Main thread tried to execute a command later, it's blocked for a long time which caused the ANR. The "processReferences" is a HashMap which records the exit value of each child process. When ProcessManager is initialized, it creates a Thread which checks the status of every child in an infinite loop. When the status of one child process is exited or signaled, it will set the exit value accordingly.
+{% highlight java %}
+private ProcessManager() {
+        // Spawn a thread to listen for signals from child processes.
+        Thread reaperThread = new Thread(ProcessManager.class.getName()) {
+            @Override public void run() {
+                watchChildren();
+            }
+        };
+        ...
+    }
+{% endhighlight %}
+
+The case is clear. We should prevent calling any method which takes a lock. With lock involved, you won't know how long your UI thread will wait before other threads release the lock. Runtime.exec() should be invoked asynchronously instead. If your UI relies on the result of exec(), place it at a earlier stage and cache it for later reference. In some extreme case, use NDK to fork the process.
+
