@@ -43,7 +43,7 @@ android {
 }
 {% endhighlight %}
 
-## How does Gradle plugin loaded? Where the configuration block "android" is defined?
+<h3>How does Gradle plugin loaded? Where the configuration block "android" is defined?</h3>
 The "apply" in the 1st line specifies the name of plugin to be loaded. The "buildscript" block (line 7-15) specifies the repository to fine the plugin jar file.
 In our example we define two repositories: local Maven repo and a public Maven repo. The "classpath" line (line 13) specifies the GAV coordinate for the plugin: group=com.android.tools.build, artifact=gradle, version=1.3.1. With GAV, Gradle runtime could locate and download the plugin artifact from Maven repository.
 
