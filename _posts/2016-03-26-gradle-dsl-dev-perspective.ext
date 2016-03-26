@@ -88,7 +88,7 @@ public Class<? extends BaseExtension> getExtensionClass() {
 
 So far, "android" in DSL is mapped to Extension class com.android.build.gradle.LibraryExtension. When Gradle reads every sub-configuration entry in "android{}", it tries to locate the related field or method in LibraryExtension class.
 
-## How configuration entries like "compileSdkVersion" works?
+<h3>How configuration entries like "compileSdkVersion" works?</h3>
 When I was a newbie in the Gradle world, the only way to know the configuration entries are by reading Gradle documents. However, documents are far from perfect so it's not easy to know how to config all the entries. Frankly speaking, if you get to know a little bit how Gradle plugin works, you can query all the configration entries available by reading a little code.
 
 Let's fall back to the previous sample. com.android.build.gradle.LibraryExtension derives from BaseExtension. Take a look at the definition of BaseExtension:
@@ -109,7 +109,7 @@ In fact, the line "compileSdkVersion 23" in DSL, maps to the invokation of metho
 - field abcd
 So you can also config it like "compileSdkVersion 'android-23'". After the version of SDK is set, Gradle will generate the path to the build-tools. You could also see there are bunch of other properties defined in BaseExtension like: useLibrary(String), buildTypes(Action), manifestOptions(Action), signingConfigs(Action) --- they are all related to the entries in DSL.
 
-## About the dynamic
+<h3>About the dynamic</h3>
 The mechanism of loading configurations is a kind of static way --- Gradle reads DSL and set related properties. But the power of Gradle is far more than this. For example, we can insert any code at the begining and end of a task:
 {% highlight java %}
 tasks.whenTaskAdded { task ->
@@ -146,5 +146,5 @@ afterEvaluate {
 
 The delegate object of "afterEvaluate" is the object of Project, as it is defined in the top level of DSL. It's a shortcut syntax, which is the same as "project.afterEvaluate{}". If it is written inside a task, the default delegate is the task object. As there is no method nor field named "afterEvaluate", Gradle will report the error.
 
-## Summary
+<h3>Summary</h3>
 I hope you understand the essential of Gradle DSL is the mappings to Extension classes, which are loaded through Gradle plugins. Gradle is initially designed to provide a powerful way to extend the build logic through such mechanism. Indeed it's much agile than XML by Maven. However, with this mechanism the learning curve is much sharp than other build tools, especially at start time.
