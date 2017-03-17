@@ -7,24 +7,24 @@ comments: true
 head_image: images/gallery/macro/vliux_macro_2017-0549.jpg
 ---
 
-<img src='/images/gallery/macro/vliux_macro_2017-0549.JPG' alt='' width='{{ site.data.vliux.imgwidth}}'/>
+<img src='/images/gallery/macro/vliux_macro_2017-0549.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
 <br>
 
-<img src='/images/gallery/macro/vliux_macro_2017-0562.JPG' alt='' width='{{ site.data.vliux.imgwidth}}'/>
+<img src='/images/gallery/macro/vliux_macro_2017-0562.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
 <br>
 
-<img src='/images/gallery/macro/vliux_macro_2017-0564.JPG' alt='' width='{{ site.data.vliux.imgwidth}}'/>
+<img src='/images/gallery/macro/vliux_macro_2017-0564.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
 <br>
 
-<img src='/images/gallery/macro/vliux_macro_2017-4143.JPG' alt='' width='{{ site.data.vliux.imgwidth}}'/>
+<img src='/images/gallery/macro/vliux_macro_2017-4143.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
 <br>
 
-<img src='/images/gallery/macro/vliux_macro_2017-4169.JPG' alt='' width='{{ site.data.vliux.imgwidth}}'/>
+<img src='/images/gallery/macro/vliux_macro_2017-4169.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
 <br>
 
-<img src='/images/gallery/macro/vliux_macro_2017-4346.JPG' alt='' width='{{ site.data.vliux.imgwidth}}'/>
+<img src='/images/gallery/macro/vliux_macro_2017-4346.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
 <br>
 
-<img src='/images/gallery/macro/vliux_macro_2017-4366.JPG' alt='' width='{{ site.data.vliux.imgwidth}}'/>
+<img src='/images/gallery/macro/vliux_macro_2017-4366.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
 <br>
 
