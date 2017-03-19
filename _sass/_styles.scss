@@ -372,14 +372,15 @@ header.site-header nav {
             margin-bottom: $lh*2;
             position: relative;
             
-            a {
+            /* vliux: only apply hover transition anim to 'post-title' class */
+            a.post-title {
                 position: relative;
                 &:hover {
                     @include transit;
                 }
             }
             
-            a:hover:before {
+            a.post-title:hover:before {
                 content:'...';
                 color: $grey-light;
                 font-family: $sans;
@@ -392,7 +393,7 @@ header.site-header nav {
                 @include transit;
             }
             
-            a:before {
+            a.post-title:before {
                 content:'“';
                 color: $grey-light;
                 position: absolute;
