@@ -7,24 +7,25 @@ comments: true
 head_image: images/gallery/macro/vliux_macro_2017-0564.jpg
 ---
 
-<img src='/images/gallery/macro/vliux_macro_2017-0549.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
-<br>
+<div class="divTable" style="width: 100%;" >
+<div class="divTableBody">
 
-<img src='/images/gallery/macro/vliux_macro_2017-0562.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
-<br>
+<div class="divTableRow">
+<div class="divTableCell"><img src="/images/gallery/macro/vliux_macro_2017-0549.jpg" alt=""/></div>
+<div class="divTableCell"><img src="/images/gallery/macro/vliux_macro_2017-0564.jpg" alt=""/></div>
+</div>
 
-<img src='/images/gallery/macro/vliux_macro_2017-0564.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
-<br>
+<div class="divTableRow">
+<div class="divTableCell"><img src="/images/gallery/macro/vliux_macro_2017-4143.jpg" alt=""/></div>
+<div class="divTableCell"><img src="/images/gallery/macro/vliux_macro_2017-4169.jpg" alt=""/></div>
+</div>
 
-<img src='/images/gallery/macro/vliux_macro_2017-4143.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
-<br>
+<div class="divTableRow">
+<div class="divTableCell"><img src="/images/gallery/macro/vliux_macro_2017-4346.jpg" alt=""/></div>
+<div class="divTableCell"><img src="/images/gallery/macro/vliux_macro_2017-4366.jpg" alt=""/></div>
+</div>
 
-<img src='/images/gallery/macro/vliux_macro_2017-4169.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
-<br>
+</div>
+</div>
 
-<img src='/images/gallery/macro/vliux_macro_2017-4346.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
-<br>
-
-<img src='/images/gallery/macro/vliux_macro_2017-4366.jpg' alt='' width='{{ site.data.vliux.imgwidth}}'/>
-<br>
 
