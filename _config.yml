@@ -1,7 +1,9 @@
-title:            vliux photos & code
+title:            vliux's story
 tagline:          A beautiful theme.
-description:      The footprint of vliux.
+description:      The story of Xin Liu.
 canonical: http://vliux.me
+production_url : http://vliux.me
+url: http://vliux.me
 
 # Owner/author information
 owner:
@@ -62,3 +64,8 @@ permalink:   /:categories/:title/
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp"]
+
+# pagination
+gems: [jekyll-paginate]
+paginate: 7
+safe: false
