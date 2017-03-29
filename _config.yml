@@ -26,14 +26,17 @@ tools:
 # Links to include in top navigation
 # For external links add external: true
 links:
-  - title: About
-    url: /about
   - title: 500px
     url: https://500px.com/xinliu4
     external: true
   - title: 500px中国
     url: https://500px.me/vliux
     external: true
+  - title: instagram
+    url: https://www.instagram.com/vliux
+    external: true
+  - title: About
+    url: /about
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/New_York
