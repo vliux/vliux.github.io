@@ -37,6 +37,7 @@ $serif: "Calendas Plus","Crimson Text", "Hoefler Text", "Georgia", serif;
 
 /** * 12 & 16 as roots then powers of two. */
 
+/** original font sizes
 $fs1:64px;
 $fs2:48px;
 $fs3:32px;
@@ -46,11 +47,26 @@ $fsp:22px;
 
 $fs5:20px;
 $fs6:12px;
+*/
+
+// vliux: reduce font size by 1 step
+$fs1:48px;
+$fs2:32px;
+$fs3:26px;
+$fs4:22px;
+$fsp:20px;
+$fs5:14px;
+$fs6:12px;
 
 // Line Height
-
+/** original line height
 $lh: 33px;
 $lhsmall: 24px;
+*/
+
+// vliux: reduce line height by 1 step
+$lh: 24px;
+$lhsmall: 16px;
 
 // Sizing 
 $footerHeight: 320px;
