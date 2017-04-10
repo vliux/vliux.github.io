@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://localhost:4000</loc>
+        <loc>http://vliux.me</loc>
     </url>
 
     
     <url>
-        <loc>http://localhost:4000/gallery/qtj-sunset/</loc>
+        <loc>http://vliux.me/gallery/qtj-sunset/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/gallery/flower-life/</loc>
+        <loc>http://vliux.me/gallery/flower-life/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/gallery/macro-static/</loc>
+        <loc>http://vliux.me/gallery/macro-static/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/gradle/gradle-dsl-dev-perspective/</loc>
+        <loc>http://vliux.me/blog,/gradle/gradle-dsl-dev-perspective/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/process/ui/avoid-exec-in-ui-thread/</loc>
+        <loc>http://vliux.me/blog,/android/process/ui/avoid-exec-in-ui-thread/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/ui/magnifier-color-picker/</loc>
+        <loc>http://vliux.me/blog,/android/ui/magnifier-color-picker/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/proc/android-procs/</loc>
+        <loc>http://vliux.me/blog,/android/proc/android-procs/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/dalvik/android/reflection/invoke-super/</loc>
+        <loc>http://vliux.me/blog,/dalvik/android/reflection/invoke-super/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/gallery/jiuzhai/</loc>
+        <loc>http://vliux.me/gallery/jiuzhai/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/gaps-in-android-perf-dev/</loc>
+        <loc>http://vliux.me/blog,/android/gaps-in-android-perf-dev/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/gallery/lives-around-us/</loc>
+        <loc>http://vliux.me/gallery/lives-around-us/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/steps-away-from-california/</loc>
+        <loc>http://vliux.me/blog,/android/steps-away-from-california/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/android-power-consumption-and-timing-tasks/</loc>
+        <loc>http://vliux.me/blog,/android/android-power-consumption-and-timing-tasks/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/android-power-consumption-and-wakelock/</loc>
+        <loc>http://vliux.me/blog,/android/android-power-consumption-and-wakelock/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/battery-monitoring-on-user-phone/</loc>
+        <loc>http://vliux.me/blog,/android/battery-monitoring-on-user-phone/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/cache-layout-whenever-you-can/</loc>
+        <loc>http://vliux.me/blog,/android/cache-layout-whenever-you-can/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/gallery,/comics/restoring-my-drawing-skill/</loc>
+        <loc>http://vliux.me/gallery,/comics/restoring-my-drawing-skill/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/leak-of-android.os.Message/</loc>
+        <loc>http://vliux.me/blog,/android/leak-of-android.os.Message/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog,/android/interactive-background-task/</loc>
+        <loc>http://vliux.me/blog,/android/interactive-background-task/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/blog/try-to-get-jekyll-running/</loc>
+        <loc>http://vliux.me/blog/try-to-get-jekyll-running/</loc>
     </url>
     
 </urlset>

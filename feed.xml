@@ -3,26 +3,26 @@
 <title type="text">vliux's story</title>
 <subtitle type="text">A beautiful theme.</subtitle>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
-<link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2017-04-10T18:36:58+08:00</updated>
-<id>http://localhost:4000/</id>
+<link rel="self" type="application/atom+xml" href="http://vliux.me/feed.xml" />
+<link rel="alternate" type="text/html" href="http://vliux.me" />
+<updated>2017-04-10T19:18:04+08:00</updated>
+<id>http://vliux.me/</id>
 <author>
   <name>vliux</name>
-  <uri>http://localhost:4000/</uri>
+  <uri>http://vliux.me/</uri>
   <email>swordmanliuxin@gmail.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[钱塘江日落]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/gallery/qtj-sunset/" />
-  <id>http://localhost:4000/gallery/qtj-sunset</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/gallery/qtj-sunset/" />
+  <id>http://vliux.me/gallery/qtj-sunset</id>
   <published>2017-03-20T18:33:00+08:00</published>
   <updated>2017-03-20T18:33:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">&lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
@@ -44,19 +44,19 @@
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/gallery/qtj-sunset/&quot;&gt;钱塘江日落&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on March 20, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/qtj-sunset/&quot;&gt;钱塘江日落&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on March 20, 2017.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[花落花起]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/gallery/flower-life/" />
-  <id>http://localhost:4000/gallery/flower-life</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/gallery/flower-life/" />
+  <id>http://vliux.me/gallery/flower-life</id>
   <published>2017-03-20T17:59:00+08:00</published>
   <updated>2017-03-20T17:59:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">&lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
@@ -78,19 +78,19 @@
 &lt;a href=&quot;/images/p/flower-life/vliux_flower_life_2017-3327.jpg&quot;&gt;&lt;img src=&quot;/images/p/flower-life/vliux_flower_life_2017-3327.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/gallery/flower-life/&quot;&gt;花落花起&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on March 20, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/flower-life/&quot;&gt;花落花起&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on March 20, 2017.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[雨后静物]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/gallery/macro-static/" />
-  <id>http://localhost:4000/gallery/macro-static</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/gallery/macro-static/" />
+  <id>http://vliux.me/gallery/macro-static</id>
   <published>2017-03-17T15:54:00+08:00</published>
   <updated>2017-03-17T15:54:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">&lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
@@ -116,19 +116,19 @@
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/gallery/macro-static/&quot;&gt;雨后静物&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on March 17, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/macro-static/&quot;&gt;雨后静物&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on March 17, 2017.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Gradle DSL from developer perspective]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/gradle/gradle-dsl-dev-perspective/" />
-  <id>http://localhost:4000/blog,/gradle/gradle-dsl-dev-perspective</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/gradle/gradle-dsl-dev-perspective/" />
+  <id>http://vliux.me/blog,/gradle/gradle-dsl-dev-perspective</id>
   <published>2016-03-26T13:47:00+08:00</published>
   <updated>2016-03-26T13:47:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">Gradle is the official build tool for Android. Compared with Maven, it’s more dynamic so developers can easily define their customized building logics.
@@ -258,19 +258,19 @@ The delegate object of &quot;afterEvaluate&quot; is the object of Project, as it
 &lt;h3&gt;Summary&lt;/h3&gt;
 I hope you understand the essential of Gradle DSL is the mappings to Extension classes, which are loaded through Gradle plugins. Gradle is initially designed to provide a powerful way to extend the build logic through such mechanism. Indeed it's much agile than XML by Maven. However, with this mechanism the learning curve is much sharp than other build tools, especially at start time.
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/gradle/gradle-dsl-dev-perspective/&quot;&gt;Gradle DSL from developer perspective&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on March 26, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/gradle/gradle-dsl-dev-perspective/&quot;&gt;Gradle DSL from developer perspective&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on March 26, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Avoid Runtime.exec in UI thread]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/process/ui/avoid-exec-in-ui-thread/" />
-  <id>http://localhost:4000/blog,/android/process/ui/avoid-exec-in-ui-thread</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/process/ui/avoid-exec-in-ui-thread/" />
+  <id>http://vliux.me/blog,/android/process/ui/avoid-exec-in-ui-thread</id>
   <published>2015-09-24T03:49:00+08:00</published>
   <updated>2015-09-24T03:49:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">Several days ago I saw a ANR during monkey test. The ANR trace looked like this.
@@ -310,19 +310,19 @@ So when our Main thread tried to execute a command later, it's blocked for a lon
 The case is clear. We should prevent calling any method which takes a lock. With lock involved, you won't know how long your UI thread will wait before other threads release the lock. Runtime.exec() should be invoked asynchronously instead. If your UI relies on the result of exec(), place it at a earlier stage and cache it for later reference. In some extreme case, use NDK to fork the process.
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/process/ui/avoid-exec-in-ui-thread/&quot;&gt;Avoid Runtime.exec in UI thread&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on September 24, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/process/ui/avoid-exec-in-ui-thread/&quot;&gt;Avoid Runtime.exec in UI thread&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on September 24, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Implement a color-picker and magnifier in Android]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/ui/magnifier-color-picker/" />
-  <id>http://localhost:4000/blog,/android/ui/magnifier-color-picker</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/ui/magnifier-color-picker/" />
+  <id>http://vliux.me/blog,/android/ui/magnifier-color-picker</id>
   <published>2015-09-20T03:17:00+08:00</published>
   <updated>2015-09-20T03:17:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">UI calibration is one of the latest features comes into Hurdle. With this functionality, UEDs and developers are able to check whether the UI implementation is aligned with design spec. Color-picker and magnifier is one of the feature inside. 
@@ -433,19 +433,19 @@ The MagnifierView is show atop of any Activity. It's manipulated directly by Win
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/ui/magnifier-color-picker/&quot;&gt;Implement a color-picker and magnifier in Android&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on September 20, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/ui/magnifier-color-picker/&quot;&gt;Implement a color-picker and magnifier in Android&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on September 20, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Android /proc file systemß]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/proc/android-procs/" />
-  <id>http://localhost:4000/blog,/android/proc/android-procs</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/proc/android-procs/" />
+  <id>http://vliux.me/blog,/android/proc/android-procs</id>
   <published>2015-08-16T05:32:00+08:00</published>
   <updated>2015-08-16T05:32:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">I attended AnDevCon Boston 2015 weeks ago. Compared with Google IO, it's much more like a training camp combined with some company advertisements. Fortunately I met Jonathan Levin who is the author of &quot;Android Internals&quot;. The content of this blog is mainly from his speech in the conference.
@@ -496,19 +496,19 @@ As Jonathan mentioned, getting familiar with these file systems like /proc and /
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/proc/android-procs/&quot;&gt;Android /proc file systemß&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on August 16, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/proc/android-procs/&quot;&gt;Android /proc file systemß&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on August 16, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Invoke super method with reflection]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/dalvik/android/reflection/invoke-super/" />
-  <id>http://localhost:4000/blog,/dalvik/android/reflection/invoke-super</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/dalvik/android/reflection/invoke-super/" />
+  <id>http://vliux.me/blog,/dalvik/android/reflection/invoke-super</id>
   <published>2015-07-10T21:00:00+08:00</published>
   <updated>2015-07-10T21:00:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">Occasionally, I need to invoke a method, which is defined in super class, instead of the derived class, with Java reflection.
@@ -558,19 +558,19 @@ For an overrided method, it has the same slot value for both the super and deriv
 &lt;br&gt;&lt;br&gt;
 Fix this problem is not as easy as finding the root cause. The invokeNative() method obtains the class from the object(which is the class definition of the derived class), which prevents any solution from the Java level. In our project we have composed a native method which is similar with invokeNative(), but instead it fetchs the super class definition. If you have any better solution, don't hesitate to tell me :)
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/dalvik/android/reflection/invoke-super/&quot;&gt;Invoke super method with reflection&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on July 10, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/dalvik/android/reflection/invoke-super/&quot;&gt;Invoke super method with reflection&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on July 10, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[九寨沟]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/gallery/jiuzhai/" />
-  <id>http://localhost:4000/gallery/jiuzhai</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/gallery/jiuzhai/" />
+  <id>http://vliux.me/gallery/jiuzhai</id>
   <published>2015-06-28T01:31:00+08:00</published>
   <updated>2015-06-28T01:31:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">As submerged by grey modern city, I can't forget the blue water of Jiuzhai Valley, and the wide green of Ruoergai prairie. 
@@ -649,19 +649,19 @@ Panda lake
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/gallery/jiuzhai/&quot;&gt;九寨沟&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on June 28, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/jiuzhai/&quot;&gt;九寨沟&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on June 28, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Gaps in Android development]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/gaps-in-android-perf-dev/" />
-  <id>http://localhost:4000/blog,/android/gaps-in-android-perf-dev</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/gaps-in-android-perf-dev/" />
+  <id>http://vliux.me/blog,/android/gaps-in-android-perf-dev</id>
   <published>2015-06-07T06:16:00+08:00</published>
   <updated>2015-06-07T06:16:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">&lt;a href=&quot;https://medium.com/google-developers&quot;&gt;Chet Haase&lt;/a&gt; has composed a series of good articles about Android performance. Every Android developer should read them. In fact, after reading, and with consideration of my experiences of Android app development, there are many gaps between what skills and knowledges most of the developers accuqire and need to accuqire, in order to write a good app:
@@ -678,19 +678,19 @@ I believe there will be some technical solution to fill most of the gaps. For ou
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/gaps-in-android-perf-dev/&quot;&gt;Gaps in Android development&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on June 07, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/gaps-in-android-perf-dev/&quot;&gt;Gaps in Android development&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on June 07, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Lives around us]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/gallery/lives-around-us/" />
-  <id>http://localhost:4000/gallery/lives-around-us</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/gallery/lives-around-us/" />
+  <id>http://vliux.me/gallery/lives-around-us</id>
   <published>2015-05-23T05:36:00+08:00</published>
   <updated>2015-05-23T05:36:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">I bring a Canon Powershot S110 camera with me all the time. It's tiny but professional, as it's able to output RAW image format! When getting tired at work, I'd prefer to take a 30-min walk around the campus with the camera.
@@ -727,19 +727,19 @@ Life is beautiful, even for the most tiny ones.
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/gallery/lives-around-us/&quot;&gt;Lives around us&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on May 23, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/lives-around-us/&quot;&gt;Lives around us&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on May 23, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Steps away from California]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/steps-away-from-california/" />
-  <id>http://localhost:4000/blog,/android/steps-away-from-california</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/steps-away-from-california/" />
+  <id>http://vliux.me/blog,/android/steps-away-from-california</id>
   <published>2015-03-22T06:04:00+08:00</published>
   <updated>2015-03-22T06:04:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">Last year I took on-site interview visits to two of the most greatest tech companies in the bay area. Being spent in California about two weeks and talked with so many talented geeks, I think there should be something for me that can be memorized.
@@ -761,19 +761,19 @@ It's absolutely difficult to get an offer from such great companies. But even if
 &lt;li&gt;2. Keep practicing, keep young, all my life&lt;/li&gt;
 &lt;li&gt;3. if succeed, goto exit; else if too old, goto exit; else goto 1.&lt;/li&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/steps-away-from-california/&quot;&gt;Steps away from California&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on March 22, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/steps-away-from-california/&quot;&gt;Steps away from California&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on March 22, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Android power consumption and timing tasks]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/android-power-consumption-and-timing-tasks/" />
-  <id>http://localhost:4000/blog,/android/android-power-consumption-and-timing-tasks</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/android-power-consumption-and-timing-tasks/" />
+  <id>http://vliux.me/blog,/android/android-power-consumption-and-timing-tasks</id>
   <published>2015-02-08T04:42:00+08:00</published>
   <updated>2015-02-08T04:42:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">On Android platforms, there are about 3 approaches to execute timing tasks so far:
@@ -850,19 +850,19 @@ Compared with AlarmManager, JobScheduler has following features:
 &lt;h3&gt;Summary&lt;/h3&gt;
 For any foreground task, use Handler as it's more simple, intuitive and less likely to be harmful. For background tasks without strict time requirement, use JobScheduler API on Android 5.0, and InExact mode through AlarmManager API on previous Android versions. For background tasks which seems like to be with accurate timing requirement, consider whether the requirement can be degraded by any algorithm with JobScheduler or timing window on AlarmManager. As app developer, we should be sensitive to tasks of both Wakeup type and Exact mode, as it increases the possibility of uninstallation of the app by users greatly.
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/android-power-consumption-and-timing-tasks/&quot;&gt;Android power consumption and timing tasks&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on February 08, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/android-power-consumption-and-timing-tasks/&quot;&gt;Android power consumption and timing tasks&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on February 08, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Android power consumption and WakeLock]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/android-power-consumption-and-wakelock/" />
-  <id>http://localhost:4000/blog,/android/android-power-consumption-and-wakelock</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/android-power-consumption-and-wakelock/" />
+  <id>http://vliux.me/blog,/android/android-power-consumption-and-wakelock</id>
   <published>2015-02-04T02:01:00+08:00</published>
   <updated>2015-02-04T02:01:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">Battery resource is precious in mobile devices. Android system will put the screen, keyboard(if any) and CPU to sleep if there is no user activity for a given time span. As the device may enter sleep mode at any time, we as programmers need to manage WakeLocks manually for long-term operations.
@@ -960,19 +960,19 @@ In the sample of Android SDK about WBR, IntentService is used with WBR. However,
 &lt;h3&gt;Summary&lt;/h3&gt;
 Using WakeLock is more complicated than we normally thinkg, especially when the code is splited into many different modules and concurrent is applied. So please think WakeLock as the last solution to use. For almost all foreground cases, use FLAG_KEEP_SCREEN_ON and rely on WindowManager to handle the locks for us; for background tasks, the last but effective defence is to use acquire(long timeout) instead of acquire().
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/android-power-consumption-and-wakelock/&quot;&gt;Android power consumption and WakeLock&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on February 04, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/android-power-consumption-and-wakelock/&quot;&gt;Android power consumption and WakeLock&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on February 04, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Battery monitoring on user phone]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/battery-monitoring-on-user-phone/" />
-  <id>http://localhost:4000/blog,/android/battery-monitoring-on-user-phone</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/battery-monitoring-on-user-phone/" />
+  <id>http://vliux.me/blog,/android/battery-monitoring-on-user-phone</id>
   <published>2015-01-30T04:39:00+08:00</published>
   <updated>2015-01-30T04:39:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">There are much more differences between mobile application development and servier-side/PC-client development. Mostly because the system resources are limitied on mobile devices. Battery is one of such resources which direclty impacts the user experiences. However, it's quite easy for a novice to write code with low efficiency and high power consumption. Even experienced programmers may produce code which occasionaly drains the battery under some circumstances. In a result, the team will soon be immersed by mass of complains from users.
@@ -1028,19 +1028,19 @@ Collecting the consumption and behavior data is only the first step to our purpo
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/battery-monitoring-on-user-phone/&quot;&gt;Battery monitoring on user phone&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on January 30, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/battery-monitoring-on-user-phone/&quot;&gt;Battery monitoring on user phone&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on January 30, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Cache layout whenever you can]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/cache-layout-whenever-you-can/" />
-  <id>http://localhost:4000/blog,/android/cache-layout-whenever-you-can</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/cache-layout-whenever-you-can/" />
+  <id>http://vliux.me/blog,/android/cache-layout-whenever-you-can</id>
   <published>2014-10-31T04:45:00+08:00</published>
   <updated>2014-10-31T04:45:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">On Instagram I share the my drawings comics to friends and public folks, as well as enjoying beautiful images from others. It's one of my most frequenlty used apps.
@@ -1097,19 +1097,19 @@ Normally a FavorListLayout or CommentsListLayout contains 5-10 sub-views. So whe
 Conclusion
 After revising the corresponding code by caching the sub-views inside FavorListLayout and CommentsListLayout, the average time cost of getView() decreased from 221ms to just 31ms. So if you are implementing a ViewGroup and adding/removing views are at high frequency, you need to re-design your ViewGroup, considering cache the views inside, not only avoid calling inflate(), but also avoid creating new instances of views like TextView/ImageView.
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/cache-layout-whenever-you-can/&quot;&gt;Cache layout whenever you can&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on October 31, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/cache-layout-whenever-you-can/&quot;&gt;Cache layout whenever you can&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on October 31, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Restoring my drawing skill]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/gallery,/comics/restoring-my-drawing-skill/" />
-  <id>http://localhost:4000/gallery,/comics/restoring-my-drawing-skill</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/gallery,/comics/restoring-my-drawing-skill/" />
+  <id>http://vliux.me/gallery,/comics/restoring-my-drawing-skill</id>
   <published>2014-10-25T19:26:00+08:00</published>
   <updated>2014-10-25T19:26:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">Tomb Raider 9 is really a good game, as I have been attracted greatly by the courage, beautity, health and justice of Lara. Playing the game is like controlling the character inside a movice while the joy from the game overwhelmed which from any movie I saw before.
@@ -1131,19 +1131,19 @@ Allysia Moorea at archery(painted by professional comic pens):
 Below is the first pencil draft of the character. As the stroke of pencil is wierd under camera, I changed to pens after it:
 &lt;img src='/images/gallery/allysia_moorea_1st_draft.vliux.jpg' alt='Allysia Moorea at the 1st design' width=''/&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/gallery,/comics/restoring-my-drawing-skill/&quot;&gt;Restoring my drawing skill&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on October 25, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery,/comics/restoring-my-drawing-skill/&quot;&gt;Restoring my drawing skill&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on October 25, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Leak of android.os.Message]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/leak-of-android.os.Message/" />
-  <id>http://localhost:4000/blog,/android/leak-of-android.os.Message</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/leak-of-android.os.Message/" />
+  <id>http://vliux.me/blog,/android/leak-of-android.os.Message</id>
   <published>2014-10-15T23:50:00+08:00</published>
   <updated>2014-10-15T23:50:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">It's quite normal for an Android application developer to write such code:
@@ -1217,19 +1217,19 @@ If the pool is full, then clearForRecycle() will not be executed at all! This wi
 &lt;br&gt;&lt;br&gt;
 My suggestion is to use static inner class for the Handler. Inside the Handler, use WeakReference to Activity. Then whatever kind of bugs there may be, your code are safe and memory leak will be prevented.
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/leak-of-android.os.Message/&quot;&gt;Leak of android.os.Message&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on October 15, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/leak-of-android.os.Message/&quot;&gt;Leak of android.os.Message&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on October 15, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[A kind of interactive background task]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog,/android/interactive-background-task/" />
-  <id>http://localhost:4000/blog,/android/interactive-background-task</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/interactive-background-task/" />
+  <id>http://vliux.me/blog,/android/interactive-background-task</id>
   <published>2014-10-09T23:50:00+08:00</published>
   <updated>2014-10-09T23:50:00+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">In Android applications, complicated business logics are normally encapsulated in methods like doXXX() of the business layer. In UI layer, doXXX() methods are invoked inside AsyncTask.doInBackground(). This kind of encapsulation is quite common but with following disadvantages:
@@ -1419,24 +1419,24 @@ Correspondingly, in UI layer:
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cancel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog,/android/interactive-background-task/&quot;&gt;A kind of interactive background task&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on October 09, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/interactive-background-task/&quot;&gt;A kind of interactive background task&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on October 09, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Try to get Jekyll running!]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/blog/try-to-get-jekyll-running/" />
-  <id>http://localhost:4000/blog/try-to-get-jekyll-running</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/blog/try-to-get-jekyll-running/" />
+  <id>http://vliux.me/blog/try-to-get-jekyll-running</id>
   <published>2014-09-30T06:08:23+08:00</published>
   <updated>2014-09-30T06:08:23+08:00</updated>
   <author>
     <name>vliux</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
   <content type="html">I'd like to make a blog for myself, and I found Github Pages. Pages uses Jekyll, so I need to get familiar with it. The first task is to make it running, and it's done now!
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog/try-to-get-jekyll-running/&quot;&gt;Try to get Jekyll running!&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://localhost:4000&quot;&gt;vliux's story&lt;/a&gt; on September 30, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog/try-to-get-jekyll-running/&quot;&gt;Try to get Jekyll running!&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on September 30, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
