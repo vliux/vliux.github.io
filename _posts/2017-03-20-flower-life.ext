@@ -2,9 +2,9 @@
 layout: post
 title:  "花落花起"
 date:   2017-03-20 17:59
-categories: Photography
+categories: Gallery
 comments: true
-head_image: images/p/flower-life/flower_life_header.jpg
+head_image: /images/p/flower-life/flower_life_header.jpg
 ---
 
 <div class="divTable" style="width: 100%;" >
