@@ -1,0 +1,335 @@
+<meta charset="utf-8">
+<title>Gradle DSL from developer perspective &#8211; vliux's story</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Gradle DSL from developer perspective &#8211; vliux's story">
+<meta property="og:description" content="Gradle is the official build tool for Android. Compared with Maven, it’s more dynamic so developers can easily define...">
+<meta property="og:url" content="http://localhost:4000/blog,/gradle/gradle-dsl-dev-perspective/">
+<meta property="og:site_name" content="vliux's story">
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="vliux's story Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Type -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/crimson.css" rel='stylesheet' type='text/css' />
+<link href="/assets/css/sourcesanspro.css" rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/entypo.css" media="all">
+
+<!-- In order to use Calendas Plus, you must first purchase it. Then, create a font-face package using FontSquirrel.
+<link rel='stylesheet' href='http://localhost:4000/assets/cal.css' media='all' />
+-->
+
+
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/i.css">
+
+<!-- Fresh Squeezed jQuery -->
+
+<!-- vliux: not sure what does this do for my site. But it slows the page loading, especially as google is blocked -->
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+
+<div id="bump">
+  <body class="">
+    <header class="site-header darken">
+      <div class="wrap">
+        <hgroup>
+          <h1><a href="/">vliux's story</a></h1>
+        </hgroup>
+        <a href="#nav" class="menu"><span class='icons'>☰</span></a>
+        <nav role="navigation">
+          <ul>
+            <li>
+              <a href="/gallery" title="Gallery">Gallery</a>
+            </li>
+
+            <li>
+              <a href="/blog" title="Blog">Blog</a>
+            </li>
+
+            
+                <li><a href="https://500px.com/xinliu4" target="_blank">500px</a></li>
+            
+                <li><a href="https://500px.me/vliux" target="_blank">500px中国</a></li>
+            
+                <li><a href="http://localhost:4000/about" >About</a></li>
+            
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+<!-- tencent analysis -->
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=61337454" charset="UTF-8"></script>
+
+<section class="article">
+
+<!-- 
+  <div class="overlay"></div>
+  <div class="featured-image" style="background-image: url(http://localhost:4000/images/typewriter.jpg)"></div>
+ -->
+
+
+      <article class="wrap post">
+        <header class="post-header">
+          <hgroup>
+            <h1>Gradle DSL from developer perspective</h1>
+            <p class="date">Mar 26, 2016</p>
+            <p class="intro"></p>
+          </hgroup>
+        </header>
+        
+        <div class="content">
+            Gradle is the official build tool for Android. Compared with Maven, it’s more dynamic so developers can easily define their customized building logics.
+
+It could easy for anyone to be lost in the new Gradle world --- DSK, task re-ordering/injection, incremental build, Gradle demo --- there are a lot for new features and concepts to learn. From an Android developer's point of view, understanding the configuration language of Gradle is the most important. So let's take a deep look into Gradle DSL.
+<p>
+
+The Gradle system can be divided into two structural parts: Gradle runtime and Gradle plugins. Gradle runtime is the libs and executables inside the Gradle installation dir (also the Gradlew scripts and the libs inside gradle/wrapper folder if you are using a Gradle wrapper). Runtime works as a low-level service which start up the build system and reads the configuration files (build.gradle, settings.gradle). It also loads plugins mentioned in the configuration files. The concrete build logic of tasks are mostly defined by plugins. For Android, the logic of how to build an apk/aar is declared inside the Google android plugin.  
+<p>
+
+Every Android developer could already know the content of build.gradle and settings.gradle under your project. In this article we call the set of Gradle configration files "Gradle DSL". There are multiple confiugrations like dependencies, android, publish etc. The configuration language of Gradle is Groovy. The below configuration will be used thoroughly in this article:
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">apply</span> <span class="nl">plugin:</span> <span class="err">'</span><span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">library</span><span class="err">'</span>
+<span class="n">buildscript</span> <span class="o">{</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">mavenLocal</span><span class="o">()</span>
+        <span class="n">maven</span> <span class="o">{</span> <span class="n">url</span> <span class="s">"http://somewhere.com/mvn/repository"</span><span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">classpath</span> <span class="err">'</span><span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">tools</span><span class="o">.</span><span class="na">build</span><span class="o">:</span><span class="nl">gradle:</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">1</span><span class="err">'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">android</span> <span class="o">{</span>
+  <span class="n">compileSdkVersion</span> <span class="mi">23</span>
+    <span class="n">buildToolsVersion</span> <span class="s">"23.0.2"</span>
+
+  <span class="n">sourceSets</span> <span class="o">{</span>
+    <span class="n">main</span> <span class="o">{</span>
+      <span class="n">mainifest</span><span class="o">.</span><span class="na">srcFile</span> <span class="s">"AndroidManifest.xml"</span>
+      <span class="n">java</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">=</span> <span class="o">[</span><span class="err">'</span><span class="n">src</span><span class="err">'</span><span class="o">]</span>
+      <span class="n">aidl</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">=</span> <span class="o">[</span><span class="err">'</span><span class="n">src</span><span class="err">'</span><span class="o">]</span>
+      <span class="n">res</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">=</span> <span class="o">[</span><span class="err">'</span><span class="n">res</span><span class="err">'</span><span class="o">]</span>
+      <span class="n">assets</span><span class="o">.</span><span class="na">srcDirs</span> <span class="o">=</span> <span class="o">[</span><span class="err">'</span><span class="n">assets</span><span class="err">'</span><span class="o">]</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<h3>How does Gradle plugin loaded? Where the configuration block "android" is defined?</h3>
+The "apply" in the 1st line specifies the name of plugin to be loaded. The "buildscript" block (line 7-15) specifies the repository to fine the plugin jar file.
+In our example we define two repositories: local Maven repo and a public Maven repo. The "classpath" line (line 13) specifies the GAV coordinate for the plugin: group=com.android.tools.build, artifact=gradle, version=1.3.1. With GAV, Gradle runtime could locate and download the plugin artifact from Maven repository.
+
+By extracting gradle-1.3.1.jar, we can find there are plenty of .properties files inside --- one of them (file name: com.android.library.properties) defines the implementation class of plugin 'com.android.library':
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">implementation</span><span class="o">-</span><span class="kd">class</span><span class="err">=</span><span class="nc">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">build</span><span class="o">.</span><span class="na">gradle</span><span class="o">.</span><span class="na">LibraryPlugin</span></code></pre></figure>
+
+Gradle runtime will load the class and execute the menthod apply(Project). The core logic of LibraryPlugin.apply() is at its supper class, which is com.android.build.gradle.BasePlugin.apply():
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">apply</span><span class="o">(</span><span class="n">Project</span> <span class="n">project</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">......</span>
+
+        <span class="n">SpanRecorders</span><span class="o">.</span><span class="na">record</span><span class="o">(</span><span class="n">project</span><span class="o">,</span> <span class="n">ExecutionType</span><span class="o">.</span><span class="na">BASE_PLUGIN_PROJECT_BASE_EXTENSTION_CREATION</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">createExtension</span><span class="o">()</span>
+        <span class="o">}</span>
+
+        <span class="n">SpanRecorders</span><span class="o">.</span><span class="na">record</span><span class="o">(</span><span class="n">project</span><span class="o">,</span> <span class="n">ExecutionType</span><span class="o">.</span><span class="na">BASE_PLUGIN_PROJECT_TASKS_CREATION</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">createTasks</span><span class="o">()</span>
+        <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+We take a deep look into the method createExtension(). Extension is a conception in Gradle. In fact, one extension defines how a configuration block in DSL is parsed. The implementation of createExtension() is like following:
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">createExtension</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">......</span>
+  <span class="n">extension</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="na">extensions</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="err">'</span><span class="n">android</span><span class="err">'</span><span class="o">,</span> <span class="n">getExtensionClass</span><span class="o">(),</span>
+                <span class="o">(</span><span class="n">ProjectInternal</span><span class="o">)</span> <span class="n">project</span><span class="o">,</span> <span class="n">instantiator</span><span class="o">,</span> <span class="n">androidBuilder</span><span class="o">,</span> <span class="n">sdkHandler</span><span class="o">,</span>
+                <span class="n">buildTypeContainer</span><span class="o">,</span> <span class="n">productFlavorContainer</span><span class="o">,</span> <span class="n">signingConfigContainer</span><span class="o">,</span>
+                <span class="n">extraModelInfo</span><span class="o">,</span> <span class="n">isLibrary</span><span class="o">())</span>
+    <span class="o">......</span>
+<span class="o">}</span></code></pre></figure>
+
+The first parameter "android" of project.extensions.create() is relate to the configuration block with the same name in Gradle DSL. Here the plugin links the String "android" in DSL to a class returned from getExtensionClass(), which is the second parameter of project.extensions.create(). LibraryPlugin.getExtensionClass() is as follows:
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">BaseExtension</span><span class="o">&gt;</span> <span class="nf">getExtensionClass</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">LibraryExtension</span><span class="o">.</span><span class="na">class</span>
+<span class="o">}</span></code></pre></figure>
+
+So far, "android" in DSL is mapped to Extension class com.android.build.gradle.LibraryExtension. When Gradle reads every sub-configuration entry in "android{}", it tries to locate the related field or method in LibraryExtension class.
+
+<h3>How configuration entries like "compileSdkVersion" works?</h3>
+When I was a newbie in the Gradle world, the only way to know the configuration entries are by reading Gradle documents. However, documents are far from perfect so it's not easy to know how to config all the entries. Frankly speaking, if you get to know a little bit how Gradle plugin works, you can query all the configration entries available by reading a little code.
+
+Let's fall back to the previous sample. com.android.build.gradle.LibraryExtension derives from BaseExtension. Take a look at the definition of BaseExtension:
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">void</span> <span class="nf">compileSdkVersion</span><span class="o">(</span><span class="n">String</span> <span class="n">version</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">checkWritability</span><span class="o">()</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">target</span> <span class="o">=</span> <span class="n">version</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">compileSdkVersion</span><span class="o">(</span><span class="kt">int</span> <span class="n">apiLevel</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">compileSdkVersion</span><span class="o">(</span><span class="s">"android-"</span> <span class="o">+</span> <span class="n">apiLevel</span><span class="o">)</span>
+<span class="o">}</span></code></pre></figure>
+
+In fact, the line "compileSdkVersion 23" in DSL, maps to the invokation of method BaseExtension.compileSdkVersion(int). For every configuration name "abcd", Gradle tries to set the value in the related Extension class:
+- abcd() method
+- setAbcd() method
+- field abcd
+So you can also config it like "compileSdkVersion 'android-23'". After the version of SDK is set, Gradle will generate the path to the build-tools. You could also see there are bunch of other properties defined in BaseExtension like: useLibrary(String), buildTypes(Action), manifestOptions(Action), signingConfigs(Action) --- they are all related to the entries in DSL.
+
+<h3>About the dynamic</h3>
+The mechanism of loading configurations is a kind of static way --- Gradle reads DSL and set related properties. But the power of Gradle is far more than this. For example, we can insert any code at the begining and end of a task:
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">tasks</span><span class="o">.</span><span class="na">whenTaskAdded</span> <span class="o">{</span> <span class="n">task</span> <span class="o">-&gt;</span>
+  <span class="k">if</span><span class="o">(</span><span class="n">task</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="err">“</span><span class="n">merge</span><span class="err">”</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">task</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">"Assets"</span><span class="o">)){</span>
+    <span class="n">task</span><span class="o">.</span><span class="na">doLast</span> <span class="o">{</span>
+      <span class="n">def</span> <span class="n">buildType</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span><span class="n">task</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">6</span><span class="o">).</span><span class="na">toLowerCase</span><span class="o">()</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">project</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">signingConfigs</span><span class="o">.</span><span class="na">getAt</span><span class="o">(</span><span class="n">buildType</span><span class="o">).</span><span class="na">getSignOnline</span><span class="o">()){</span>
+              <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">commons</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">FileUtils</span><span class="o">.</span><span class="na">copyFileToDirectory</span><span class="o">(</span><span class="n">task</span><span class="o">.</span><span class="na">project</span><span class="o">.</span><span class="na">file</span><span class="o">(</span><span class="s">"env/assets.release/SE.bin"</span><span class="o">),</span><span class="n">task</span><span class="o">.</span><span class="na">outputDir</span><span class="o">)</span>
+            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+              <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">commons</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">FileUtils</span><span class="o">.</span><span class="na">copyFileToDirectory</span><span class="o">(</span><span class="n">task</span><span class="o">.</span><span class="na">project</span><span class="o">.</span><span class="na">file</span><span class="o">(</span><span class="s">"env/assets.debug/SE.bin"</span><span class="o">),</span><span class="n">task</span><span class="o">.</span><span class="na">outputDir</span><span class="o">)</span>
+            <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+Here we insert a copying logic at the end of tasks whose name starts with "merge" and ends with "Assets". In the example the file SE.bin is copied to the output folder of take mergeXXXAssets, so it will be included in the assets folder of apk. 
+"afterEvaluate {}" could also implement the same effect:
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">afterEvaluate</span> <span class="o">{</span>
+    <span class="c1">// set parameter for dex task: —-multi-dex和—main-dex-list</span>
+   <span class="n">tasks</span><span class="o">.</span><span class="na">matching</span> <span class="o">{</span>
+      <span class="n">it</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="err">'</span><span class="n">dexDebug</span><span class="err">'</span><span class="o">)</span>
+   <span class="o">}.</span><span class="na">each</span> <span class="o">{</span> <span class="n">dx</span> <span class="o">-&gt;</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">dx</span><span class="o">.</span><span class="na">additionalParameters</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+         <span class="n">dx</span><span class="o">.</span><span class="na">additionalParameters</span> <span class="o">=</span> <span class="o">[</span><span class="err">'</span><span class="o">--</span><span class="n">multi</span><span class="o">-</span><span class="n">dex</span><span class="err">'</span><span class="o">,</span> <span class="s">"--main-dex-list="</span> <span class="o">+</span> <span class="n">mianDexFilePath</span><span class="o">]</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+         <span class="n">dx</span><span class="o">.</span><span class="na">additionalParameters</span> <span class="o">+=</span> <span class="err">'</span><span class="o">--</span><span class="n">multi</span><span class="o">-</span><span class="n">dex</span><span class="err">'</span>
+         <span class="n">dx</span><span class="o">.</span><span class="na">additionalParameters</span> <span class="o">+=</span> <span class="s">"--main-dex-list="</span> <span class="o">+</span> <span class="n">mianDexFilePath</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+The delegate object of "afterEvaluate" is the object of Project, as it is defined in the top level of DSL. It's a shortcut syntax, which is the same as "project.afterEvaluate{}". If it is written inside a task, the default delegate is the task object. As there is no method nor field named "afterEvaluate", Gradle will report the error.
+
+<h3>Summary</h3>
+I hope you understand the essential of Gradle DSL is the mappings to Extension classes, which are loaded through Gradle plugins. Gradle is initially designed to provide a powerful way to extend the build logic through such mechanism. Indeed it's much agile than XML by Maven. However, with this mechanism the learning curve is much sharp than other build tools, especially at start time.
+
+        </div>
+
+      <!-- vliux: google+ comments -->
+      <!--<<script src="https://apis.google.com/js/plusone.js">
+      </script>
+      <p><div class="g-comments"
+        data-href="http://vliux.me/blog,/gradle/gradle-dsl-dev-perspective/"
+        data-width="642"
+        data-first_party_property="BLOGGER"
+        data-view_type="FILTERED_POSTMOD">
+      </div></p>-->
+
+      <!--<a class="share" href="https://twitter.com/intent/tweet?text=&quot;Gradle DSL from developer perspective&quot;%20http://vliux.me/blog,/gradle/gradle-dsl-dev-perspective/%20via%20&#64;" data-dnt="true">Share</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+
+      <!-- disqus comments page is blocked, so it slows the page loading dramatically 
+      
+      <aside class="disqus">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'vliuxonsoftware'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = (location.protocol == 'https:' ? location.protocol : 'https:') + '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </aside>
+      
+      -->
+
+      <!-- vliux: google+ share is blocked as well
+      <br/><br/>
+      <script type="text/javascript">
+         (function() {
+             var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+             po.src = 'https://apis.google.com/js/plusone.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+      <g:plus action="share" href="http://vliux.me/blog,/gradle/gradle-dsl-dev-perspective/"></g:plus>
+      -->
+      </article>
+
+    </section>
+</div>
+
+<div class="push"></div>
+  <footer>
+    <aside class="wrap">
+      <ol class="prev-posts">
+        <p class="list-title">Recent Posts</p>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="http://localhost:4000/gallery/qtj-sunset/" title="钱塘江日落">钱塘江日落 </a></span>
+              <span class="date">Mar 20, 2017</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="http://localhost:4000/gallery/flower-life/" title="花落花起">花落花起 </a></span>
+              <span class="date">Mar 20, 2017</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="http://localhost:4000/gallery/macro-static/" title="雨后静物">雨后静物 </a></span>
+              <span class="date">Mar 17, 2017</span>
+            </li>
+        
+      </ol>
+
+      <div class="social">
+        <ul>
+            <li><a id="mail" href="mailto:swordmanliuxin@gmail.com"><span class="foot-link">@Email</span></a></li>
+
+            
+            <li><a id="500px" href="https://500px.com/xinliu4" target="_blank"><span class="foot-link">500px</span></a></li>
+            
+
+            
+            <li><a id="500pxc" href="https://500px.me/vliux" target="_blank"><span class="foot-link">500px中国</span></a></li>
+            
+
+            
+            <li><a id="insta" href="https://www.instagram.com/vliux" target="_blank"><span class="foot-link">Instagram</span></a></li>
+            
+        </ul>
+    </div>
+    </aside>
+    <small>&copy; 2017 vliux. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://jekyll.gtat.me/about">Balzac</a> theme.</small>
+  </footer>
+
+  <!-- If they're out, get some from the cellar -->
+  <script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script src="http://localhost:4000/assets/js/retina.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="http://localhost:4000/assets/js/scripts.js"></script>
+
+
+  </body>
+</html>
+

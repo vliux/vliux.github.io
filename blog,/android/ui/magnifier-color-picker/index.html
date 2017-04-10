@@ -1,0 +1,316 @@
+<meta charset="utf-8">
+<title>Implement a color-picker and magnifier in Android &#8211; vliux's story</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Implement a color-picker and magnifier in Android &#8211; vliux's story">
+<meta property="og:description" content="UI calibration is one of the latest features comes into Hurdle. With this functionality, UEDs and developers are able...">
+<meta property="og:url" content="http://localhost:4000/blog,/android/ui/magnifier-color-picker/">
+<meta property="og:site_name" content="vliux's story">
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="vliux's story Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Type -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/crimson.css" rel='stylesheet' type='text/css' />
+<link href="/assets/css/sourcesanspro.css" rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/entypo.css" media="all">
+
+<!-- In order to use Calendas Plus, you must first purchase it. Then, create a font-face package using FontSquirrel.
+<link rel='stylesheet' href='http://localhost:4000/assets/cal.css' media='all' />
+-->
+
+
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/i.css">
+
+<!-- Fresh Squeezed jQuery -->
+
+<!-- vliux: not sure what does this do for my site. But it slows the page loading, especially as google is blocked -->
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+
+<div id="bump">
+  <body class="">
+    <header class="site-header darken">
+      <div class="wrap">
+        <hgroup>
+          <h1><a href="/">vliux's story</a></h1>
+        </hgroup>
+        <a href="#nav" class="menu"><span class='icons'>☰</span></a>
+        <nav role="navigation">
+          <ul>
+            <li>
+              <a href="/gallery" title="Gallery">Gallery</a>
+            </li>
+
+            <li>
+              <a href="/blog" title="Blog">Blog</a>
+            </li>
+
+            
+                <li><a href="https://500px.com/xinliu4" target="_blank">500px</a></li>
+            
+                <li><a href="https://500px.me/vliux" target="_blank">500px中国</a></li>
+            
+                <li><a href="http://localhost:4000/about" >About</a></li>
+            
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+<!-- tencent analysis -->
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=61337454" charset="UTF-8"></script>
+
+<section class="article">
+
+<!-- 
+  <div class="overlay"></div>
+  <div class="featured-image" style="background-image: url(http://localhost:4000/images/typewriter.jpg)"></div>
+ -->
+
+
+      <article class="wrap post">
+        <header class="post-header">
+          <hgroup>
+            <h1>Implement a color-picker and magnifier in Android</h1>
+            <p class="date">Sep 20, 2015</p>
+            <p class="intro"></p>
+          </hgroup>
+        </header>
+        
+        <div class="content">
+            UI calibration is one of the latest features comes into Hurdle. With this functionality, UEDs and developers are able to check whether the UI implementation is aligned with design spec. Color-picker and magnifier is one of the feature inside. 
+<img src='/images/gallery/magnifier.png' alt='Magnifier' width=''/>
+
+<h3>Obtain bitmap from Activity</h3>
+The content to show inside MagnifierView is a crop from background Activity bitmap. To obtain a bitmap of the Activity:
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">View</span> <span class="n">decroView</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="na">getWindow</span><span class="o">().</span><span class="na">getDecorView</span><span class="o">();</span>
+<span class="n">decroView</span><span class="o">.</span><span class="na">buildDrawingCache</span><span class="o">();</span>
+<span class="n">Bitmap</span> <span class="n">activityBitmap</span> <span class="o">=</span> <span class="n">decroView</span><span class="o">.</span><span class="na">getDrawingCache</span><span class="o">();</span></code></pre></figure>
+
+<h3>Prepare drawing</h3>
+Before implementing onDraw(), there are something to be prepared. First we have a content-bitmap and a mask-bitmap, both with the same size of the MagnifierView, say 130*130dp. The mask-bitmap is from a bitmap drawable which is a white-colored circle with transparent background. 
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// width and height is MagnifierView dimension</span>
+<span class="c1">// the target bitmap which will be shown inside MagnifierView</span>
+<span class="n">Bitmap</span> <span class="n">mTargetBitmap</span> <span class="o">=</span> <span class="n">Bitmap</span><span class="o">.</span><span class="na">createBitmap</span><span class="o">(</span><span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">,</span> <span class="n">BitmapConfig</span><span class="o">.</span><span class="na">ARGB_8888</span><span class="o">);</span>
+<span class="c1">// mCanvasTarget will draw into mTargetBitmap</span>
+<span class="n">Canvas</span> <span class="n">mCanvasTarget</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Canvas</span><span class="o">(</span><span class="n">mTargetBitmap</span><span class="o">);</span>
+
+<span class="c1">// the activity-bitmap will be cropped and drawn into mContentBitmap first</span>
+<span class="n">Bitmap</span> <span class="n">mContentBitmap</span> <span class="o">=</span> <span class="n">Bitmap</span><span class="o">.</span><span class="na">createBitmap</span><span class="o">(</span><span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">,</span> <span class="n">BitmapConfig</span><span class="o">.</span><span class="na">ARGB_8888</span><span class="o">);</span>
+<span class="n">Canvas</span> <span class="n">mCanvasContent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Canvas</span><span class="o">(</span><span class="n">mContentBitmap</span><span class="o">);</span>
+
+<span class="c1">// the paint object to mask the content-bitmap with mask-bitmap</span>
+<span class="n">Paint</span> <span class="n">mPaintMask</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Paint</span><span class="o">(</span><span class="n">Paint</span><span class="o">.</span><span class="na">ANTI_ALIAS_FLAG</span><span class="o">);</span> 
+<span class="n">mPaintMask</span><span class="o">.</span><span class="na">setXferMode</span><span class="o">(</span><span class="k">new</span> <span class="n">PorterDuffXfermode</span><span class="o">(</span><span class="n">Mode</span><span class="o">.</span><span class="na">SRC_IN</span><span class="o">));</span>
+
+<span class="c1">// magnify matrix</span>
+<span class="n">Matrix</span> <span class="n">mMatrix</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Matrix</span><span class="o">();</span>
+<span class="n">mMatrix</span><span class="o">.</span><span class="na">setScale</span><span class="o">(</span><span class="mf">1.2f</span><span class="o">,</span> <span class="mf">1.2f</span><span class="o">);</span></code></pre></figure>
+
+<h3>Draw the magnifier</h3>
+Whenever the magnifier is moved, calculate the part of activity-bitmap which should be shown inside, copy that area into content-bitmap, as the content-bitmap is much smaller than activity-bitmap, it is cropped. Then mask the content-bitmap against the mask-bitmap, which translate the shape of content-bitmap from rectanglar to circle. 
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onTouchEvent</span><span class="o">(</span><span class="n">MotionEvent</span> <span class="n">event</span><span class="o">){</span>
+    <span class="kt">float</span> <span class="n">rawX</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="na">getRawX</span><span class="o">();</span>
+    <span class="kt">float</span> <span class="n">rawY</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="na">getRawY</span><span class="o">();</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">event</span><span class="o">.</span><span class="na">getAction</span><span class="o">()</span> <span class="o">==</span> <span class="n">MotionEvent</span><span class="o">.</span><span class="na">ACTION_MOVE</span><span class="o">{</span>
+        <span class="c1">// avoid obstruction by the finger, make the magnifier a little bit above the touch point</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="n">rawX</span> <span class="o">-</span> <span class="n">mContentBitmap</span><span class="o">.</span><span class="na">getWidth</span><span class="o">()/</span><span class="mi">2</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="n">rawY</span> <span class="o">-</span> <span class="n">mContentBitmap</span><span class="o">.</span><span class="na">getHeight</span><span class="o">());</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// update the content of the magnifier</span>
+        <span class="n">updateMagnifierContent</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
+        <span class="c1">// update the positon of the magnifier with WindowManager</span>
+        <span class="n">updateMagnifierPosition</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+Somebody may point out that rawY should be substract by the height of system notification bar. But in fact, the Activity window is actually drawn full-screen, the notification bar is an overlay at the top. The Activity window just leaves the area obstructed as transparent. 
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**
+ * @param bmpLtX: the top-left location X of the bitmap to be drawn
+ * @param bmpLtY: the top-left location Y of the bitmap to be drawn
+ */</span>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">updateMagnifierContent</span><span class="o">(</span><span class="kt">int</span> <span class="n">bmpLtX</span><span class="o">,</span> <span class="kt">int</span> <span class="n">bmpLtY</span><span class="o">){</span>
+    <span class="c1">// draw the portion of activity-bitmap into mContentBitmap, as a intermediate buffer</span>
+    <span class="n">mContentBitmap</span><span class="o">.</span><span class="na">eraseColor</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="n">mCanvasContent</span><span class="o">.</span><span class="na">save</span><span class="o">();</span>
+    <span class="c1">// note: negative values used</span>
+    <span class="n">mCanvasContent</span><span class="o">.</span><span class="na">translate</span><span class="o">(-</span><span class="n">bmpLtX</span><span class="o">,</span> <span class="o">-</span><span class="n">bmpLtY</span><span class="o">);</span>
+    <span class="n">mCanvasContent</span><span class="o">.</span><span class="na">drawBitmap</span><span class="o">(</span><span class="n">mActivityBitmap</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">mPaint</span><span class="o">);</span>
+    <span class="n">mCanvasContent</span><span class="o">.</span><span class="na">restore</span><span class="o">();</span>
+    
+    <span class="n">mTargetBitmap</span><span class="o">.</span><span class="na">eraseColor</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="c1">// the drawble of mask-bitmap</span>
+    <span class="n">Drawable</span> <span class="n">maskDrawable</span> <span class="o">=</span> <span class="n">getMaskDrawable</span><span class="o">();</span>
+    <span class="n">maskDrawable</span><span class="o">.</span><span class="na">draw</span><span class="o">(</span><span class="n">mCanvasTarget</span><span class="o">);</span>
+    <span class="n">mCanvasTarget</span><span class="o">.</span><span class="na">save</span><span class="o">();</span>
+    <span class="c1">// mask mContentBitmap with mask-bitmap, by PorterDuffXfermode(mPaintMask),</span>
+    <span class="c1">// to make it a circle,</span>
+    <span class="c1">// with mMatrix, the content-bitmap is magnified by 20%</span>
+    <span class="n">mCanvasTarget</span><span class="o">.</span><span class="na">drawBitmap</span><span class="o">(</span><span class="n">mContentBitmap</span><span class="o">,</span> <span class="n">mMatrix</span><span class="o">,</span> <span class="n">mPaintMask</span><span class="o">);</span>
+    <span class="n">mCanvasTarget</span><span class="o">.</span><span class="na">restore</span><span class="o">();</span>
+    
+    <span class="c1">// draw other decorations ...</span>
+    
+    <span class="c1">// will trigger onDraw()</span>
+    <span class="n">invalidate</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDraw</span><span class="o">(</span><span class="n">Canvas</span> <span class="n">canvas</span><span class="o">){</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="na">drawBitmap</span><span class="o">(</span><span class="n">mTargetBitmap</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+Please note that the parameters passed to Canvas.translate() are (-bmpLtX, -bmpLtY), instead of (bmpLtX, bmpLtY). I was quite confusing about this at the begining. Translation moves the base point (0, 0) of the Canvas to (-bmpLtX, -bmpLtY), say (-150, -200). When the activity-bitmap is then drawn to the canvas, the base point of the bitmap is actually drawn at view coordinator (-150, -200), which is out of the screen and will not displayed. So the point of bitmap (150, 200) is now drawn at view coordinator (0, 0), that exactly what I want. 
+
+<h3>Update window location</h3>
+The MagnifierView is show atop of any Activity. It's manipulated directly by WindowManager. 
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">showMagnifier</span><span class="o">(){</span>
+    <span class="n">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">();</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">type</span> <span class="o">=</span> <span class="n">LayoutParams</span><span class="o">.</span><span class="na">SYSTEM_ALERT</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="c1">// FLAG_NOT_TOUCH_MODAL ensures that the magnifier doesn't caputre all the touch events outside the view</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">flags</span> <span class="o">=</span> <span class="n">FLAG_ALT_FOCUSABLE_IM</span> <span class="o">|</span> <span class="n">FLAG_HARDWARE_ACCELERATED</span> <span class="o">|</span> <span class="n">FLAG_NOT_TOUCH_MODAL</span><span class="o">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">format</span> <span class="o">=</span> <span class="n">PixelFormat</span><span class="o">.</span><span class="na">TRANSLUCENT</span><span class="o">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">WRAP_CONTENT</span><span class="o">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">WRAP_CONTENT</span><span class="o">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="na">gravity</span> <span class="o">=</span> <span class="n">LEFT</span> <span class="o">|</span> <span class="n">TOP</span><span class="o">;</span> <span class="c1">// only for LEFT-TOP, params.x, y will take effect</span>
+    <span class="n">mWindowManager</span><span class="o">.</span><span class="na">addView</span><span class="o">(</span><span class="n">overlay</span><span class="o">,</span> <span class="n">params</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">updateMagnifierPosition</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">){</span>
+    <span class="n">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span> <span class="n">lp</span> <span class="o">=</span> <span class="o">(</span><span class="n">WindowManager</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">getLayoutParams</span><span class="o">();</span>
+    <span class="n">lp</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+    <span class="n">lp</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+    <span class="n">mWindowManager</span><span class="o">.</span><span class="na">updateViewLayout</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">lp</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+
+
+        </div>
+
+      <!-- vliux: google+ comments -->
+      <!--<<script src="https://apis.google.com/js/plusone.js">
+      </script>
+      <p><div class="g-comments"
+        data-href="http://vliux.me/blog,/android/ui/magnifier-color-picker/"
+        data-width="642"
+        data-first_party_property="BLOGGER"
+        data-view_type="FILTERED_POSTMOD">
+      </div></p>-->
+
+      <!--<a class="share" href="https://twitter.com/intent/tweet?text=&quot;Implement a color-picker and magnifier in Android&quot;%20http://vliux.me/blog,/android/ui/magnifier-color-picker/%20via%20&#64;" data-dnt="true">Share</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+
+      <!-- disqus comments page is blocked, so it slows the page loading dramatically 
+      
+      <aside class="disqus">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'vliuxonsoftware'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = (location.protocol == 'https:' ? location.protocol : 'https:') + '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </aside>
+      
+      -->
+
+      <!-- vliux: google+ share is blocked as well
+      <br/><br/>
+      <script type="text/javascript">
+         (function() {
+             var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+             po.src = 'https://apis.google.com/js/plusone.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+      <g:plus action="share" href="http://vliux.me/blog,/android/ui/magnifier-color-picker/"></g:plus>
+      -->
+      </article>
+
+    </section>
+</div>
+
+<div class="push"></div>
+  <footer>
+    <aside class="wrap">
+      <ol class="prev-posts">
+        <p class="list-title">Recent Posts</p>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="http://localhost:4000/gallery/qtj-sunset/" title="钱塘江日落">钱塘江日落 </a></span>
+              <span class="date">Mar 20, 2017</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="http://localhost:4000/gallery/flower-life/" title="花落花起">花落花起 </a></span>
+              <span class="date">Mar 20, 2017</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="http://localhost:4000/gallery/macro-static/" title="雨后静物">雨后静物 </a></span>
+              <span class="date">Mar 17, 2017</span>
+            </li>
+        
+      </ol>
+
+      <div class="social">
+        <ul>
+            <li><a id="mail" href="mailto:swordmanliuxin@gmail.com"><span class="foot-link">@Email</span></a></li>
+
+            
+            <li><a id="500px" href="https://500px.com/xinliu4" target="_blank"><span class="foot-link">500px</span></a></li>
+            
+
+            
+            <li><a id="500pxc" href="https://500px.me/vliux" target="_blank"><span class="foot-link">500px中国</span></a></li>
+            
+
+            
+            <li><a id="insta" href="https://www.instagram.com/vliux" target="_blank"><span class="foot-link">Instagram</span></a></li>
+            
+        </ul>
+    </div>
+    </aside>
+    <small>&copy; 2017 vliux. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://jekyll.gtat.me/about">Balzac</a> theme.</small>
+  </footer>
+
+  <!-- If they're out, get some from the cellar -->
+  <script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script src="http://localhost:4000/assets/js/retina.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="http://localhost:4000/assets/js/scripts.js"></script>
+
+
+  </body>
+</html>
+

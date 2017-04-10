@@ -1,0 +1,222 @@
+<meta charset="utf-8">
+<title>Gaps in Android development &#8211; vliux's story</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Gaps in Android development &#8211; vliux's story">
+<meta property="og:description" content="Chet Haase has composed a series of good articles about Android performance. Every Android developer should read them...">
+<meta property="og:url" content="http://localhost:4000/blog,/android/gaps-in-android-perf-dev/">
+<meta property="og:site_name" content="vliux's story">
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="vliux's story Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Type -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/crimson.css" rel='stylesheet' type='text/css' />
+<link href="/assets/css/sourcesanspro.css" rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/entypo.css" media="all">
+
+<!-- In order to use Calendas Plus, you must first purchase it. Then, create a font-face package using FontSquirrel.
+<link rel='stylesheet' href='http://localhost:4000/assets/cal.css' media='all' />
+-->
+
+
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/i.css">
+
+<!-- Fresh Squeezed jQuery -->
+
+<!-- vliux: not sure what does this do for my site. But it slows the page loading, especially as google is blocked -->
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+
+<div id="bump">
+  <body class="">
+    <header class="site-header darken">
+      <div class="wrap">
+        <hgroup>
+          <h1><a href="/">vliux's story</a></h1>
+        </hgroup>
+        <a href="#nav" class="menu"><span class='icons'>☰</span></a>
+        <nav role="navigation">
+          <ul>
+            <li>
+              <a href="/gallery" title="Gallery">Gallery</a>
+            </li>
+
+            <li>
+              <a href="/blog" title="Blog">Blog</a>
+            </li>
+
+            
+                <li><a href="https://500px.com/xinliu4" target="_blank">500px</a></li>
+            
+                <li><a href="https://500px.me/vliux" target="_blank">500px中国</a></li>
+            
+                <li><a href="http://localhost:4000/about" >About</a></li>
+            
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+<!-- tencent analysis -->
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=61337454" charset="UTF-8"></script>
+
+<section class="article">
+
+<!-- 
+  <div class="overlay"></div>
+  <div class="featured-image" style="background-image: url(http://localhost:4000/images/typewriter.jpg)"></div>
+ -->
+
+
+      <article class="wrap post">
+        <header class="post-header">
+          <hgroup>
+            <h1>Gaps in Android development</h1>
+            <p class="date">Jun 07, 2015</p>
+            <p class="intro"></p>
+          </hgroup>
+        </header>
+        
+        <div class="content">
+            <a href="https://medium.com/google-developers">Chet Haase</a> has composed a series of good articles about Android performance. Every Android developer should read them. In fact, after reading, and with consideration of my experiences of Android app development, there are many gaps between what skills and knowledges most of the developers accuqire and need to accuqire, in order to write a good app:
+<li>There are many profling tools (systrace, traceview, historian, developer mode, ...) But most of the developers don't know when they should use which of them.</li>
+<li>Most of the app developers don't know how to use them, and the learning cost is high in every team.</li>
+<li>With many of the tools you can get a view of what happened, but that's far from locating the code causes the defections.</li>
+<li>Memory issue is the most primary causes of performance problems, and we have been told many times the good rules. But still it's very easy to write code with heavy GC.</li>
+<li>Every device is a village, in which all the apps forms the performance of the device. But it's easy to be forgot when writting code and making profiling. Also there is no easy way to profiling the whole device.</li> 
+
+<br/><br/>
+I believe there will be some technical solution to fill most of the gaps. For our team, we have built a plugin-like system to detect the software defections and runtime, running inside host app's process space. The tool can fill some of the gaps mentioned above and we are trying to fill more.
+
+
+
+
+
+        </div>
+
+      <!-- vliux: google+ comments -->
+      <!--<<script src="https://apis.google.com/js/plusone.js">
+      </script>
+      <p><div class="g-comments"
+        data-href="http://vliux.me/blog,/android/gaps-in-android-perf-dev/"
+        data-width="642"
+        data-first_party_property="BLOGGER"
+        data-view_type="FILTERED_POSTMOD">
+      </div></p>-->
+
+      <!--<a class="share" href="https://twitter.com/intent/tweet?text=&quot;Gaps in Android development&quot;%20http://vliux.me/blog,/android/gaps-in-android-perf-dev/%20via%20&#64;" data-dnt="true">Share</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
+
+      <!-- disqus comments page is blocked, so it slows the page loading dramatically 
+      
+      <aside class="disqus">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'vliuxonsoftware'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = (location.protocol == 'https:' ? location.protocol : 'https:') + '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </aside>
+      
+      -->
+
+      <!-- vliux: google+ share is blocked as well
+      <br/><br/>
+      <script type="text/javascript">
+         (function() {
+             var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+             po.src = 'https://apis.google.com/js/plusone.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+      <g:plus action="share" href="http://vliux.me/blog,/android/gaps-in-android-perf-dev/"></g:plus>
+      -->
+      </article>
+
+    </section>
+</div>
+
+<div class="push"></div>
+  <footer>
+    <aside class="wrap">
+      <ol class="prev-posts">
+        <p class="list-title">Recent Posts</p>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="http://localhost:4000/gallery/qtj-sunset/" title="钱塘江日落">钱塘江日落 </a></span>
+              <span class="date">Mar 20, 2017</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="http://localhost:4000/gallery/flower-life/" title="花落花起">花落花起 </a></span>
+              <span class="date">Mar 20, 2017</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="http://localhost:4000/gallery/macro-static/" title="雨后静物">雨后静物 </a></span>
+              <span class="date">Mar 17, 2017</span>
+            </li>
+        
+      </ol>
+
+      <div class="social">
+        <ul>
+            <li><a id="mail" href="mailto:swordmanliuxin@gmail.com"><span class="foot-link">@Email</span></a></li>
+
+            
+            <li><a id="500px" href="https://500px.com/xinliu4" target="_blank"><span class="foot-link">500px</span></a></li>
+            
+
+            
+            <li><a id="500pxc" href="https://500px.me/vliux" target="_blank"><span class="foot-link">500px中国</span></a></li>
+            
+
+            
+            <li><a id="insta" href="https://www.instagram.com/vliux" target="_blank"><span class="foot-link">Instagram</span></a></li>
+            
+        </ul>
+    </div>
+    </aside>
+    <small>&copy; 2017 vliux. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://jekyll.gtat.me/about">Balzac</a> theme.</small>
+  </footer>
+
+  <!-- If they're out, get some from the cellar -->
+  <script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script src="http://localhost:4000/assets/js/retina.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="http://localhost:4000/assets/js/scripts.js"></script>
+
+
+  </body>
+</html>
+
