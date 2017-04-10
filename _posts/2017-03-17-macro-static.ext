@@ -2,9 +2,9 @@
 layout: post
 title:  "雨后静物"
 date:   2017-03-17 15:54
-categories: Photography
+categories: Gallery
 comments: true
-head_image: images/gallery/macro/macro_header.jpg
+head_image: /images/gallery/macro/macro_header.jpg
 ---
 
 <div class="divTable" style="width: 100%;" >

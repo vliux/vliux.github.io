@@ -2,7 +2,7 @@
 layout: post
 title:  "A kind of interactive background task"
 date:   2014-10-09 15:50:00
-categories: Android
+categories: Blog, Android
 excerpt: A simple concurrent management interactive background tasks based on AsyncTask.
 comments: true
 ---
