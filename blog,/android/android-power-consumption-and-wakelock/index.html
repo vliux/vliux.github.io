@@ -82,13 +82,6 @@
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=61337454" charset="UTF-8"></script>
 
 <section class="article">
-
-<!-- 
-  <div class="overlay"></div>
-  <div class="featured-image" style="background-image: url(http://vliux.me/images/typewriter.jpg)"></div>
- -->
-
-
       <article class="wrap post">
         <header class="post-header">
           <hgroup>
@@ -98,6 +91,15 @@
           </hgroup>
         </header>
         
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{},"image":{"viewList":["weixin","tsina","sqq","fbook","twi"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","tsina","sqq","fbook","twi"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        <br/>
         <div class="content">
             Battery resource is precious in mobile devices. Android system will put the screen, keyboard(if any) and CPU to sleep if there is no user activity for a given time span. As the device may enter sleep mode at any time, we as programmers need to manage WakeLocks manually for long-term operations.
 <br><br>
@@ -195,52 +197,15 @@ In the sample of Android SDK about WBR, IntentService is used with WBR. However,
 Using WakeLock is more complicated than we normally thinkg, especially when the code is splited into many different modules and concurrent is applied. So please think WakeLock as the last solution to use. For almost all foreground cases, use FLAG_KEEP_SCREEN_ON and rely on WindowManager to handle the locks for us; for background tasks, the last but effective defence is to use acquire(long timeout) instead of acquire().
 
         </div>
-
-      <!-- vliux: google+ comments -->
-      <!--<<script src="https://apis.google.com/js/plusone.js">
-      </script>
-      <p><div class="g-comments"
-        data-href="http://vliux.me/blog,/android/android-power-consumption-and-wakelock/"
-        data-width="642"
-        data-first_party_property="BLOGGER"
-        data-view_type="FILTERED_POSTMOD">
-      </div></p>-->
-
-      <!--<a class="share" href="https://twitter.com/intent/tweet?text=&quot;Android power consumption and WakeLock&quot;%20http://vliux.me/blog,/android/android-power-consumption-and-wakelock/%20via%20&#64;" data-dnt="true">Share</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
-
-      <!-- disqus comments page is blocked, so it slows the page loading dramatically 
-      
-      <aside class="disqus">
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'vliuxonsoftware'; // required: replace example with your forum shortname
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = (location.protocol == 'https:' ? location.protocol : 'https:') + '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      </aside>
-      
-      -->
-
-      <!-- vliux: google+ share is blocked as well
-      <br/><br/>
-      <script type="text/javascript">
-         (function() {
-             var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-             po.src = 'https://apis.google.com/js/plusone.js';
-             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-        })();
-      </script>
-      <g:plus action="share" href="http://vliux.me/blog,/android/android-power-consumption-and-wakelock/"></g:plus>
-      -->
+        <br/>
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{},"image":{"viewList":["weixin","tsina","sqq","fbook","twi"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","tsina","sqq","fbook","twi"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       </article>
 
     </section>
