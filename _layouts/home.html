@@ -27,7 +27,12 @@
                 {% if paginator.next_page %}
                   <a href="{{ paginator.next_page_path }}">Older Posts</a>
                 {% endif %}
+
+                <p>
+                {% include bd_share.html %}
+                </p>
               </div>
+
           </article>
         </section>
     </div>
