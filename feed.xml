@@ -5,7 +5,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://vliux.me/feed.xml" />
 <link rel="alternate" type="text/html" href="http://vliux.me" />
-<updated>2017-04-12T14:51:35+08:00</updated>
+<updated>2017-04-13T13:27:02+08:00</updated>
 <id>http://vliux.me/</id>
 <author>
   <name>vliux</name>
@@ -15,7 +15,7 @@
 
 
 <entry>
-  <title type="html"><![CDATA[杭州]]></title>
+  <title type="html"><![CDATA[杭州Hangzhou]]></title>
   <link rel="alternate" type="text/html" href="http://vliux.me/gallery/hangzhou/" />
   <id>http://vliux.me/gallery/hangzhou</id>
   <published>2017-04-10T18:03:00+08:00</published>
@@ -25,7 +25,10 @@
     <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
-  <content type="html">西湖:
+  <content type="html">&lt;p&gt;我出生在这里。除了求学、北漂的五个春秋，我也一直生活在她怀里。&lt;/p&gt;
+&lt;p&gt;她的美，缺少那种磅礴的大气。因此横构图里的她，总是有点平淡。如果使用竖构图，再把镜头拉近，却能在每个角落里给我感动。&lt;/p&gt;
+
+&lt;p&gt;西湖(下图)是最有名的景点。因此，好天气的时候，游客非常多。再加上稍显过多的人为装饰，使得它总有些杂乱和造作的感觉。在雨雪天，游客稀少的日子里，倒更有一番韵味。&lt;/p&gt;
 &lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
 &lt;div class=&quot;divTableBody&quot;&gt;
 &lt;div class=&quot;divTableRow&quot;&gt;
@@ -35,17 +38,21 @@
 &lt;/div&gt;
 &lt;/div&gt;
 
-灵隐:
+&lt;p/&gt;
+&lt;p&gt;通往灵隐的路叫“九里松”。路两边全是高耸入云的松树、水杉和樟树(下左图）。灵隐寺坐落在飞来峰景区，相比景区内其他几座寺庙，显得更为气派。但它过大的知名度导致游客数量很多。
+如果只想安静地走一走，或赶早到达寺中，或不妨试试边上的永福寺(下图右)。&lt;/p&gt;
 &lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
 &lt;div class=&quot;divTableBody&quot;&gt;
 &lt;div class=&quot;divTableRow&quot;&gt;
-&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/hz/vliux_hz-1351.jpg&quot;&gt;&lt;img src=&quot;/images/p/hz/vliux_hz-1351.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/hz/vliux_hz-1273.jpg&quot;&gt;&lt;img src=&quot;/images/p/hz/vliux_hz-1273.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/hz/vliux_hz-1351.jpg&quot;&gt;&lt;img src=&quot;/images/p/hz/vliux_hz-1351.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-浙大和西溪湿地:
+&lt;p/&gt;
+&lt;p&gt;浙江大学玉泉校区新桥门附近（下图左）的流水和秋天的黄叶搭配很美。河水从学校边上的山上流下来，绕着校园东边而过。&lt;/p&gt;
+&lt;p&gt;西溪湿地(下图右)作为城市的“肺”，它的景是纯天然的。因此缺乏人工景观的那种有序感，更需要摄影师耐心发掘。&lt;/p&gt;
 &lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
 &lt;div class=&quot;divTableBody&quot;&gt;
 &lt;div class=&quot;divTableRow&quot;&gt;
@@ -55,16 +62,18 @@
 &lt;/div&gt;
 &lt;/div&gt;
 
-虎跑和钱塘江:
+&lt;p/&gt;
+&lt;p&gt;虎跑(下图左)虽然很小，对摄影师来说却相当高产。它是杭州之美的一个典型代表：一个小小的、安静怡和的世外桃源。这不正是每个人心中那片安宁的一亩三分地嘛？&lt;/p&gt;
+&lt;p&gt;我现在生活在钱塘江边(下图右)。江水在大多数时候都波澜不惊，显得相当平淡。但每个月的农历18，海水回灌江中，掀起巨浪，蔚为壮观。只是我一直都没有办法拍出一张满意的照片。&lt;/p&gt;
 &lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
 &lt;div class=&quot;divTableBody&quot;&gt;
 &lt;div class=&quot;divTableRow&quot;&gt;
-&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/hz/vliux_hz-02363.jpg&quot;&gt;&lt;img src=&quot;/images/p/hz/vliux_hz-02363.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/hz/vliux_hz-2305.jpg&quot;&gt;&lt;img src=&quot;/images/p/hz/vliux_hz-2305.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/hz/vliux_hz-02363.jpg&quot;&gt;&lt;img src=&quot;/images/p/hz/vliux_hz-02363.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/hangzhou/&quot;&gt;杭州&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on April 10, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/hangzhou/&quot;&gt;杭州Hangzhou&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on April 10, 2017.&lt;/p&gt;</content>
 </entry>
 
 
