@@ -13,7 +13,7 @@ description: Summer of Bagua Tien
 <div class="divTable" style="width: 100%;" >
 <div class="divTableBody">
 <div class="divTableRow">
-<div class="divTableCell"><a href="/images/p/s_bagua/101.jpg"><img src="/images/p/s_bagua/101.jpg" alt=""/></a></div>
+<div class="divTableCell">{% gimg s_bagua/101.jpg %}</div>
 </div>
 </div>
 </div>
@@ -22,7 +22,7 @@ description: Summer of Bagua Tien
 <div class="divTable" style="width: 100%;" >
 <div class="divTableBody">
 <div class="divTableRow">
-<div class="divTableCell"><a href="/images/p/s_bagua/102.jpg"><img src="/images/p/s_bagua/102.jpg" alt=""/></a></div>
+<div class="divTableCell">{% gimg s_bagua/102.jpg %}</div>
 </div>
 </div>
 </div>
@@ -31,7 +31,7 @@ description: Summer of Bagua Tien
 <div class="divTable" style="width: 100%;" >
 <div class="divTableBody">
 <div class="divTableRow">
-<div class="divTableCell"><a href="/images/p/s_bagua/104.jpg"><img src="/images/p/s_bagua/104.jpg" alt=""/></a></div>
+<div class="divTableCell">{% gimg s_bagua/104.jpg %}</div>
 </div>
 </div>
 </div>
@@ -40,7 +40,7 @@ description: Summer of Bagua Tien
 <div class="divTable" style="width: 100%;" >
 <div class="divTableBody">
 <div class="divTableRow">
-<div class="divTableCell"><a href="/images/p/s_bagua/103.jpg"><img src="/images/p/s_bagua/103.jpg" alt=""/></a></div>
+<div class="divTableCell">{% gimg s_bagua/103.jpg %}</div>
 </div>
 </div>
 </div>
@@ -49,7 +49,7 @@ description: Summer of Bagua Tien
 <div class="divTable" style="width: 100%;" >
 <div class="divTableBody">
 <div class="divTableRow">
-<div class="divTableCell"><a href="/images/p/s_bagua/105.jpg"><img src="/images/p/s_bagua/105.jpg" alt=""/></a></div>
+<div class="divTableCell">{% gimg s_bagua/105.jpg %}</div>
 </div>
 </div>
 </div>
@@ -58,7 +58,7 @@ description: Summer of Bagua Tien
 <div class="divTable" style="width: 100%;" >
 <div class="divTableBody">
 <div class="divTableRow">
-<div class="divTableCell"><a href="/images/p/s_bagua/100.jpg"><img src="/images/p/s_bagua/100.jpg" alt=""/></a></div>
+<div class="divTableCell">{% gimg s_bagua/100.jpg %}</div>
 </div>
 </div>
 </div>
