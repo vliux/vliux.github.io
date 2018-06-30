@@ -1,6 +1,6 @@
-title:            vliux's story
-tagline:          A beautiful theme.
-description:      The story of Xin Liu.
+title:            By vliux.me
+tagline:
+description:      
 canonical: http://vliux.me
 production_url : http://vliux.me
 url: http://vliux.me
@@ -9,7 +9,6 @@ url: http://vliux.me
 owner:
   name:           vliux
   avatar:         avatar.png
-  bio:            "Aesthete & Athlete"
   email:          swordmanliuxin@gmail.com
   500px:          xinliu4
   500pxc:         vliux
@@ -26,12 +25,16 @@ tools:
 # Links to include in top navigation
 # For external links add external: true
 links:
-  - title: 500px
-    url: https://500px.com/xinliu4
-    external: true
-  - title: 500px中国
-    url: https://500px.me/vliux
-    external: true
+  - title: Photography
+    url: /gallery
+  - title: Tech
+    url: /blog
+  #- title: 500px
+  #  url: https://500px.com/xinliu4
+  #  external: true
+  #- title: 500px中国
+  #  url: https://500px.me/vliux
+  #  external: true
   - title: About
     url: /about
 
