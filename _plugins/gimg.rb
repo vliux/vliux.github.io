@@ -7,7 +7,7 @@ module Jekyll
     end
 
     def render(context)
-      "<a href=\"#{@img}\"><img src=\"#{@img}\" alt=\"GIMG\"/></a>"
+      "<a href=\"#{@img}\" target=\"_blank\"><img src=\"#{@img}\" alt=\"GIMG\"/></a>"
     end
   end
 end
