@@ -5,7 +5,7 @@ date:   2018-07-04 15:00
 categories: Gallery
 comments: true
 head_image: /images/p/180704/c.jpg
-description: ...
+description: nil
 ---
 
 {% highlight java %}
