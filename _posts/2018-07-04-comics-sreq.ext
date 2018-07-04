@@ -1,0 +1,52 @@
+---
+layout: page
+title:  "摄影漫画 - 小需求"
+date:   2018-07-04 15:00
+categories: Gallery
+comments: true
+head_image: /images/p/180704/c.jpg
+description: ...
+---
+
+{% highlight java %}
+/** 背景知识
+ * 现代软件工程的复杂度越来越高。特别是对于架构不良的软件，很多看似很简单的小改动，
+ * 对系统的影响就会像涟漪一样扩散开去，最终结果无法控制。
+ * 程序员的加班，很多时候就是为这些前期的亏欠而埋单。
+ * 
+ * 造成这种情况的根源，除了纯技术原因外，更多的是来自于：
+ * - 软件需求就没有搞清楚
+ * - 设计时对软件未来需求的变化估计不足
+ * - ...
+
+ * Background
+ * Morden software is complex. For some SW which is not properly designed, 
+ * some tiny changes would affect the whole system.
+ * This is one of the root causes of programers' work-overtime.
+ * 
+ * In addition to the pure tech, the root causes includes:
+ * - the requirements are not clear
+ * - didn't evaluate the possible future changes in design time
+ * - ...
+ */
+{% endhighlight %}
+
+{% gimg 180704/1.jpg %}
+↑ "Tiny requirement, piece of cake, I should make it done in 5 min"
+<br/>
+<br/>
+
+{% gimg 180704/2.jpg %}
+↑ 30 min later ...
+<br/>
+<br/>
+
+{% gimg 180704/3.jpg %}
+↑ "There must be something wrong ...?"
+<br/>
+<br/>
+
+{% gimg 180704/4.jpg %}
+↑ "Boss, shall we delay the requirement to next milestone?"
+<br/>
+<br/>
