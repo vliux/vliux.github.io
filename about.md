@@ -3,6 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
+<p>Software engineer | Photographer</p>
 
 <ul>
 	<li>Email <a href="mailto:swordmanliuxin@gmail.com">swordmanliuxin@gmail.com</a></li>
