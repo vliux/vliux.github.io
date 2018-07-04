@@ -1,17 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-<title type="text">vliux's story</title>
-<subtitle type="text">A beautiful theme.</subtitle>
+<title type="text">By vliux.me</title>
+<subtitle type="text"></subtitle>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://vliux.me/feed.xml" />
 <link rel="alternate" type="text/html" href="http://vliux.me" />
-<updated>2017-09-10T15:25:27+08:00</updated>
+<updated>2018-07-04T15:27:14+08:00</updated>
 <id>http://vliux.me/</id>
 <author>
   <name>vliux</name>
   <uri>http://vliux.me/</uri>
   <email>swordmanliuxin@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[摄影漫画 - 小需求]]></title>
+  <link rel="alternate" type="text/html" href="http://vliux.me/gallery/comics-sreq/" />
+  <id>http://vliux.me/gallery/comics-sreq</id>
+  <published>2018-07-04T15:00:00+08:00</published>
+  <updated>2018-07-04T15:00:00+08:00</updated>
+  <author>
+    <name>vliux</name>
+    <uri>http://vliux.me</uri>
+    <email>swordmanliuxin@gmail.com</email>
+  </author>
+  <content type="html">&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/** 背景知识
+ * 现代软件工程的复杂度越来越高。特别是对于架构不良的软件，很多看似很简单的小改动，
+ * 对系统的影响就会像涟漪一样扩散开去，最终结果无法控制。
+ * 程序员的加班，很多时候就是为这些前期的亏欠而埋单。
+ * 
+ * 造成这种情况的根源，除了纯技术原因外，更多的是来自于：
+ * - 软件需求就没有搞清楚
+ * - 设计时对软件未来需求的变化估计不足
+ * - ...
+
+ * Background
+ * Morden software is complex. For some SW which is not properly designed, 
+ * some tiny changes would affect the whole system.
+ * This is one of the root causes of programers' work-overtime.
+ * 
+ * In addition to the pure tech, the root causes includes:
+ * - the requirements are not clear
+ * - didn't evaluate the possible future changes in design time
+ * - ...
+ */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;a href=&quot;/images/p/180704/1.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/180704/1.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;
+↑ &quot;Tiny requirement, piece of cake, I should make it done in 5 min&quot;
+&lt;br/&gt;
+&lt;br/&gt;
+
+&lt;a href=&quot;/images/p/180704/2.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/180704/2.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;
+↑ 30 min later ...
+&lt;br/&gt;
+&lt;br/&gt;
+
+&lt;a href=&quot;/images/p/180704/3.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/180704/3.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;
+↑ &quot;There must be something wrong ...?&quot;
+&lt;br/&gt;
+&lt;br/&gt;
+
+&lt;a href=&quot;/images/p/180704/4.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/180704/4.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;
+↑ &quot;Boss, shall we delay the requirement to next milestone?&quot;
+&lt;br/&gt;
+&lt;br/&gt;
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/comics-sreq/&quot;&gt;摄影漫画 - 小需求&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on July 04, 2018.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -25,13 +80,13 @@
     <uri>http://vliux.me</uri>
     <email>swordmanliuxin@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;今年，在一家新媒体公司短暂任职过半年。最有意思的是，公司直接坐落在景区里 -- 背靠凤凰山，面朝八卦田。&lt;/p&gt;
+  <content type="html">&lt;p&gt;办公室坐落在景区里 -- 背靠凤凰山，面朝八卦田。&lt;/p&gt;
 &lt;p&gt;&lt;font color=&quot;green&quot;&gt;照片全部来自Google Nexus 6P手机。&lt;/font&gt;&lt;/p&gt;
 
 &lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
 &lt;div class=&quot;divTableBody&quot;&gt;
 &lt;div class=&quot;divTableRow&quot;&gt;
-&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/101.jpg&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/101.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/101.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/101.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -40,7 +95,7 @@
 &lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
 &lt;div class=&quot;divTableBody&quot;&gt;
 &lt;div class=&quot;divTableRow&quot;&gt;
-&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/102.jpg&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/102.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/102.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/102.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -49,7 +104,7 @@
 &lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
 &lt;div class=&quot;divTableBody&quot;&gt;
 &lt;div class=&quot;divTableRow&quot;&gt;
-&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/104.jpg&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/104.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/104.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/104.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -58,7 +113,7 @@
 &lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
 &lt;div class=&quot;divTableBody&quot;&gt;
 &lt;div class=&quot;divTableRow&quot;&gt;
-&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/103.jpg&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/103.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/103.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/103.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -67,7 +122,7 @@
 &lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
 &lt;div class=&quot;divTableBody&quot;&gt;
 &lt;div class=&quot;divTableRow&quot;&gt;
-&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/105.jpg&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/105.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/105.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/105.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -76,13 +131,13 @@
 &lt;div class=&quot;divTable&quot; style=&quot;width: 100%;&quot; &gt;
 &lt;div class=&quot;divTableBody&quot;&gt;
 &lt;div class=&quot;divTableRow&quot;&gt;
-&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/100.jpg&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/100.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;divTableCell&quot;&gt;&lt;a href=&quot;/images/p/s_bagua/100.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/s_bagua/100.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;6月绽放的向日葵，预示着炎热夏季的临近。&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/summer_baguatian/&quot;&gt;八卦田的夏天&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on September 10, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/summer_baguatian/&quot;&gt;八卦田的夏天&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on September 10, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -145,7 +200,7 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/hangzhou/&quot;&gt;杭州Hangzhou&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on April 10, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/hangzhou/&quot;&gt;杭州Hangzhou&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on April 10, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -184,7 +239,7 @@
 
 &lt;/div&gt;
 &lt;/div&gt;
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/prague/&quot;&gt;布拉格Prague&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on April 09, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/prague/&quot;&gt;布拉格Prague&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on April 09, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -218,7 +273,7 @@
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/qtj-sunset/&quot;&gt;钱塘江日落&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on March 20, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/qtj-sunset/&quot;&gt;钱塘江日落&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on March 20, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -252,7 +307,7 @@
 &lt;a href=&quot;/images/p/flower-life/vliux_flower_life_2017-3327.jpg&quot;&gt;&lt;img src=&quot;/images/p/flower-life/vliux_flower_life_2017-3327.jpg&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/flower-life/&quot;&gt;花落花起&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on March 20, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/flower-life/&quot;&gt;花落花起&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on March 20, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -290,7 +345,7 @@
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/macro-static/&quot;&gt;雨后静物&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on March 17, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/macro-static/&quot;&gt;雨后静物&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on March 17, 2017.&lt;/p&gt;</content>
 </entry>
 
 
@@ -432,7 +487,7 @@ The delegate object of &quot;afterEvaluate&quot; is the object of Project, as it
 &lt;h3&gt;Summary&lt;/h3&gt;
 I hope you understand the essential of Gradle DSL is the mappings to Extension classes, which are loaded through Gradle plugins. Gradle is initially designed to provide a powerful way to extend the build logic through such mechanism. Indeed it's much agile than XML by Maven. However, with this mechanism the learning curve is much sharp than other build tools, especially at start time.
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/gradle/gradle-dsl-dev-perspective/&quot;&gt;Gradle DSL from developer perspective&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on March 26, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/gradle/gradle-dsl-dev-perspective/&quot;&gt;Gradle DSL from developer perspective&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on March 26, 2016.&lt;/p&gt;</content>
 </entry>
 
 
@@ -484,7 +539,7 @@ So when our Main thread tried to execute a command later, it's blocked for a lon
 The case is clear. We should prevent calling any method which takes a lock. With lock involved, you won't know how long your UI thread will wait before other threads release the lock. Runtime.exec() should be invoked asynchronously instead. If your UI relies on the result of exec(), place it at a earlier stage and cache it for later reference. In some extreme case, use NDK to fork the process.
 
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/process/ui/avoid-exec-in-ui-thread/&quot;&gt;Avoid Runtime.exec in UI thread&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on September 23, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/process/ui/avoid-exec-in-ui-thread/&quot;&gt;Avoid Runtime.exec in UI thread&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on September 24, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -607,7 +662,7 @@ The MagnifierView is show atop of any Activity. It's manipulated directly by Win
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/ui/magnifier-color-picker/&quot;&gt;Implement a color-picker and magnifier in Android&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on September 19, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/ui/magnifier-color-picker/&quot;&gt;Implement a color-picker and magnifier in Android&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on September 20, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -670,7 +725,7 @@ As Jonathan mentioned, getting familiar with these file systems like /proc and /
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/proc/android-procs/&quot;&gt;Android /proc file systemß&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on August 15, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/proc/android-procs/&quot;&gt;Android /proc file systemß&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on August 16, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -732,7 +787,7 @@ For an overrided method, it has the same slot value for both the super and deriv
 &lt;br&gt;&lt;br&gt;
 Fix this problem is not as easy as finding the root cause. The invokeNative() method obtains the class from the object(which is the class definition of the derived class), which prevents any solution from the Java level. In our project we have composed a native method which is similar with invokeNative(), but instead it fetchs the super class definition. If you have any better solution, don't hesitate to tell me :)
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/dalvik/android/reflection/invoke-super/&quot;&gt;Invoke super method with reflection&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on July 10, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/dalvik/android/reflection/invoke-super/&quot;&gt;Invoke super method with reflection&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on July 10, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -823,7 +878,7 @@ Panda lake
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/jiuzhai/&quot;&gt;九寨沟&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on June 27, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/jiuzhai/&quot;&gt;九寨沟&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on June 28, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -852,7 +907,7 @@ I believe there will be some technical solution to fill most of the gaps. For ou
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/gaps-in-android-perf-dev/&quot;&gt;Gaps in Android development&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on June 06, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/gaps-in-android-perf-dev/&quot;&gt;Gaps in Android development&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on June 07, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -901,7 +956,7 @@ Life is beautiful, even for the most tiny ones.
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/lives-around-us/&quot;&gt;Lives around us&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on May 22, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/lives-around-us/&quot;&gt;Lives around us&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on May 23, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -935,7 +990,7 @@ It's absolutely difficult to get an offer from such great companies. But even if
 &lt;li&gt;2. Keep practicing, keep young, all my life&lt;/li&gt;
 &lt;li&gt;3. if succeed, goto exit; else if too old, goto exit; else goto 1.&lt;/li&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/steps-away-from-california/&quot;&gt;Steps away from California&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on March 21, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/steps-away-from-california/&quot;&gt;Steps away from California&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on March 22, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1024,7 +1079,7 @@ Compared with AlarmManager, JobScheduler has following features:
 &lt;h3&gt;Summary&lt;/h3&gt;
 For any foreground task, use Handler as it's more simple, intuitive and less likely to be harmful. For background tasks without strict time requirement, use JobScheduler API on Android 5.0, and InExact mode through AlarmManager API on previous Android versions. For background tasks which seems like to be with accurate timing requirement, consider whether the requirement can be degraded by any algorithm with JobScheduler or timing window on AlarmManager. As app developer, we should be sensitive to tasks of both Wakeup type and Exact mode, as it increases the possibility of uninstallation of the app by users greatly.
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/android-power-consumption-and-timing-tasks/&quot;&gt;Android power consumption and timing tasks&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on February 07, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/android-power-consumption-and-timing-tasks/&quot;&gt;Android power consumption and timing tasks&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on February 08, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1134,7 +1189,7 @@ In the sample of Android SDK about WBR, IntentService is used with WBR. However,
 &lt;h3&gt;Summary&lt;/h3&gt;
 Using WakeLock is more complicated than we normally thinkg, especially when the code is splited into many different modules and concurrent is applied. So please think WakeLock as the last solution to use. For almost all foreground cases, use FLAG_KEEP_SCREEN_ON and rely on WindowManager to handle the locks for us; for background tasks, the last but effective defence is to use acquire(long timeout) instead of acquire().
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/android-power-consumption-and-wakelock/&quot;&gt;Android power consumption and WakeLock&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on February 03, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/android-power-consumption-and-wakelock/&quot;&gt;Android power consumption and WakeLock&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on February 04, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1202,7 +1257,7 @@ Collecting the consumption and behavior data is only the first step to our purpo
 
 
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/battery-monitoring-on-user-phone/&quot;&gt;Battery monitoring on user phone&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on January 29, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/battery-monitoring-on-user-phone/&quot;&gt;Battery monitoring on user phone&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on January 30, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1271,41 +1326,7 @@ Normally a FavorListLayout or CommentsListLayout contains 5-10 sub-views. So whe
 Conclusion
 After revising the corresponding code by caching the sub-views inside FavorListLayout and CommentsListLayout, the average time cost of getView() decreased from 221ms to just 31ms. So if you are implementing a ViewGroup and adding/removing views are at high frequency, you need to re-design your ViewGroup, considering cache the views inside, not only avoid calling inflate(), but also avoid creating new instances of views like TextView/ImageView.
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/cache-layout-whenever-you-can/&quot;&gt;Cache layout whenever you can&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on October 30, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Restoring my drawing skill]]></title>
-  <link rel="alternate" type="text/html" href="http://vliux.me/gallery,/comics/restoring-my-drawing-skill/" />
-  <id>http://vliux.me/gallery,/comics/restoring-my-drawing-skill</id>
-  <published>2014-10-25T19:26:00+08:00</published>
-  <updated>2014-10-25T19:26:00+08:00</updated>
-  <author>
-    <name>vliux</name>
-    <uri>http://vliux.me</uri>
-    <email>swordmanliuxin@gmail.com</email>
-  </author>
-  <content type="html">Tomb Raider 9 is really a good game, as I have been attracted greatly by the courage, beautity, health and justice of Lara. Playing the game is like controlling the character inside a movice while the joy from the game overwhelmed which from any movie I saw before.
-&lt;br&gt;&lt;br&gt;
-
-In college I spent quite a lot time for drawing, trying to create a manga by my own. Unfortunately this skill had not been exercised for 8 years until I saw Lara on the screen, when the desire to create a such kind of story by my own has been re-ignited inside me.
-&lt;br&gt;&lt;br&gt;
-
-So I'm planning to make a series of illustrations about the story. This is the heroine Allysia Moorea in my design. She is brought up from a declining noble family with sympathy of the poor, well-formed, inspired at adventure. In fact, I would like to make her be the shape of the character of my heart.
-&lt;br&gt;&lt;br&gt;
-
-You may find the name a little bit wierd. I'm not good at naming people, especially at English names, so the family name was actually from a France island on Pacific.
-&lt;br&gt;&lt;br&gt;
-
-Allysia Moorea at archery(painted by professional comic pens):
-&lt;img src='/images/gallery/allysia_at_archery.vliux.jpg' alt='Allysia Moorea at archery' width=''/&gt;
-&lt;br&gt;&lt;br&gt;
-
-Below is the first pencil draft of the character. As the stroke of pencil is wierd under camera, I changed to pens after it:
-&lt;img src='/images/gallery/allysia_moorea_1st_draft.vliux.jpg' alt='Allysia Moorea at the 1st design' width=''/&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery,/comics/restoring-my-drawing-skill/&quot;&gt;Restoring my drawing skill&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;vliux's story&lt;/a&gt; on October 25, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/cache-layout-whenever-you-can/&quot;&gt;Cache layout whenever you can&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on October 31, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
