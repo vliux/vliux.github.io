@@ -25,7 +25,7 @@ tools:
 # Links to include in top navigation
 # For external links add external: true
 links:
-  - title: Photography
+  - title: Photo & Life
     url: /gallery
   - title: Tech
     url: /blog

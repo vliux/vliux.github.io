@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: About me
 permalink: /about/
 ---
 <p>Software engineer | Photographer</p>
