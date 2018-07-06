@@ -22,6 +22,14 @@ tools:
   standards:      "HTML, SCSS, Jekyll"
   software:       "git"
 
+# user comments
+# https://imsun.net/posts/gitment-introduction/
+gitment:
+  owner: 'vliux'
+  repo: 'vliux.github.io_gitment'
+  client_id: '8a5fb88f646b2bfec025'
+  client_secret: 'c4a2a75b7377e5fde416fca7baffd4cb6197c58a'
+
 # Links to include in top navigation
 # For external links add external: true
 links:
@@ -91,5 +99,4 @@ pagination:
   sort_field: 'date'
   # Optional, sorts the posts in reverse order (omit to default decending or sort_reverse: true)
   sort_reverse: true
-
 
