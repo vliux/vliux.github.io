@@ -2,6 +2,7 @@
 layout: page
 title: About me
 permalink: /about/
+gitment: false
 ---
 <p>Software engineer | Photographer</p>
 

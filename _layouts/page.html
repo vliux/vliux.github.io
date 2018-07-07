@@ -31,21 +31,23 @@
       {% include bd_share.html %}
 
       <!-- gitment comment -->
-      <div id="container"></div>
-      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-      <script>
-        var gitment = new Gitment({
-        id: '{{ site.gitment.owner }}',
-        owner: '{{ site.gitment.owner }}',
-        repo: '{{ site.gitment.repo }}',
-        oauth: {
-          client_id: '{{ site.gitment.client_id}}',
-          client_secret: '{{ site.gitment.client_secret}}',
-        },
-        })
-        gitment.render('container')
-      </script>
+      {% if page.gitment != false %}
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+          var gitment = new Gitment({
+          id: '{{ site.gitment.owner }}',
+          owner: '{{ site.gitment.owner }}',
+          repo: '{{ site.gitment.repo }}',
+          oauth: {
+            client_id: '{{ site.gitment.client_id}}',
+            client_secret: '{{ site.gitment.client_secret}}',
+          },
+          })
+          gitment.render('container')
+        </script>
+      {% endif %}
 
       </article>
     </section>
