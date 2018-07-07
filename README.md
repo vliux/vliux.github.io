@@ -1,3 +1,62 @@
+# Changes based on the Balzac Jekyll theme.
+## Top-level nav: show underline for current selected page
+in _sass/_style.css:
+```
+/* decoration on top level link for current selected page */
+      nav ul li .selected {
+            color: $black;
+            text-decoration:underline; /* show underline */
+            &:active {
+              color: $link;  
+            }
+            &:hover {
+                text-shadow: none;
+                color: $link;
+            }
+        }
+      /* for other un-selected top level links, show as normal */
+      nav ul li a {
+            color: $black;
+            &:active {
+              color: $link;  
+            }
+            &:hover {
+                text-shadow: none;
+                color: $link;
+            }
+        }
+```
+in _include/head-dark.html:
+```
+<nav role="navigation">
+            {% for link in site.links %}
+                <li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" 
+                  {% if link.external %}target="_blank"{% endif %} 
+                  {% if page.ex_page_id != nuil and link.url contains page.ex_page_id %}class="selected"{% endif %}>
+                  {{ link.title }}
+                </a></li>
+            {% endfor %}
+```
+In each relevant page (gallery/index.html, blog/index.html, about.md, so far), add relevant ex_page_id. The value of ex_page_id should be the same as the last portion of page url:
+```
+---
+...
+ex_page_id: "gallery" # page url is http://localhost:4000/gallery/, the last portion is 'gallery'
+---
+```
+
+## Enable/disable gitment on a specific page
+In _layouts/post.html and _layouts/page.html, add a condition check before init gitment:
+```
+{% if page.gitment != false %}
+  // init gitment code
+{% endif %}
+```
+Then on the specific page, say about.md, add:
+```
+gitment: false
+```
+
 # Balzac
 
 This is forked from [minimal mistakes](http://mademistakes.com). I needed some type of framework to build off as I have no experience with Jekyll. Michael set up an awesome dev environment for this which really helped speed up my progress. He also already wrote up an incredibly comprehensive readme.md so I basically copied all of it and replaced what was necessary. The design itself is my own and I cannot let you sell this or tweak the design for resale, unless I you [contact me](mailto:cole@coletownsend.com).

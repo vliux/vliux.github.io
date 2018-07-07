@@ -3,6 +3,7 @@ layout: page
 title: About me
 permalink: /about/
 gitment: false
+ex_page_id: "about"
 ---
 <p>Software engineer | Photographer</p>
 

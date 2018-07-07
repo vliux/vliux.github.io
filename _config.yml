@@ -76,7 +76,7 @@ permalink:   /:categories/:title/
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp"]
 
-gems: [jekyll-paginate-v2]
+gems: [jekyll-paginate-v2, jekyll-redirect-from]
 
 # Site configuration for the Jekyll 3 Pagination Gem
 # The values here represent the defaults if nothing is set
@@ -99,4 +99,3 @@ pagination:
   sort_field: 'date'
   # Optional, sorts the posts in reverse order (omit to default decending or sort_reverse: true)
   sort_reverse: true
-

@@ -199,6 +199,19 @@ header.site-header {
           color: $black;
       }
       
+      /* decoration on top level link for current selected page */
+      nav ul li .selected {
+            color: $black;
+            text-decoration:underline; /* show underline */
+            &:active {
+              color: $link;  
+            }
+            &:hover {
+                text-shadow: none;
+                color: $link;
+            }
+        }
+      /* for other un-selected top level links, show as normal */
       nav ul li a {
             color: $black;
             &:active {

@@ -62,7 +62,11 @@
             </li> -->
             
             {% for link in site.links %}
-                <li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+                <li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" 
+                  {% if link.external %}target="_blank"{% endif %} 
+                  {% if page.ex_page_id != nuil and link.url contains page.ex_page_id %}class="selected"{% endif %}>
+                  {{ link.title }}
+                </a></li>
             {% endfor %}
 
           </ul>
