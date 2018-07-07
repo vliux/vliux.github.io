@@ -24,11 +24,17 @@
           </hgroup>
         </header>
 
-      {% include bd_share.html %}
+      {% if page.share != false %}
+        {% include bd_share.html %}
+      {% endif %}
+
       <br/>
       {{ content }}
       <br/>
-      {% include bd_share.html %}
+      
+      {% if page.share != false %}
+        {% include bd_share.html %}
+      {% endif %}
 
       <!-- gitment comment -->
       {% if page.gitment != false %}

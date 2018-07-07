@@ -57,6 +57,18 @@ Then on the specific page, say about.md, add:
 gitment: false
 ```
 
+## Enable/disable sharing in page/post
+In _layouts/post.html and _layouts/page.html, add a condition check before load bd_share.html:
+```
+{% if page.share != false %}
+          {% include bd_share.html %}
+        {% endif %}
+```
+In relevant page, say about.md, add：
+```
+share: false
+```
+
 # Balzac
 
 This is forked from [minimal mistakes](http://mademistakes.com). I needed some type of framework to build off as I have no experience with Jekyll. Michael set up an awesome dev environment for this which really helped speed up my progress. He also already wrote up an incredibly comprehensive readme.md so I basically copied all of it and replaced what was necessary. The design itself is my own and I cannot let you sell this or tweak the design for resale, unless I you [contact me](mailto:cole@coletownsend.com).
