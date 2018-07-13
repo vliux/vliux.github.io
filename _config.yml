@@ -33,6 +33,8 @@ gitment:
 # Links to include in top navigation
 # For external links add external: true
 links:
+  - title: Home
+    url: /home
   - title: Photo & Life
     url: /gallery
   - title: Tech
