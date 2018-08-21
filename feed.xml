@@ -5,13 +5,33 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://vliux.me/feed.xml" />
 <link rel="alternate" type="text/html" href="http://vliux.me" />
-<updated>2018-08-04T18:23:20+08:00</updated>
+<updated>2018-08-21T21:40:52+08:00</updated>
 <id>http://vliux.me/</id>
 <author>
   <name>vliux</name>
   <uri>http://vliux.me/</uri>
   <email>swordmanliuxin@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Pen draw - JingGu]]></title>
+  <link rel="alternate" type="text/html" href="http://vliux.me/gallery/jinggu/" />
+  <id>http://vliux.me/gallery/jinggu</id>
+  <published>2018-08-21T21:30:00+08:00</published>
+  <updated>2018-08-21T21:30:00+08:00</updated>
+  <author>
+    <name>vliux</name>
+    <uri>http://vliux.me</uri>
+    <email>swordmanliuxin@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;JingGu is neither a decent nor negative character in the yet unknown story.
+&lt;br/&gt;Pen draw by Xin Liu at Aug 2018&lt;/p&gt;
+
+&lt;a href=&quot;/images/p/180821/1.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/180821/1.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/jinggu/&quot;&gt;Pen draw - JingGu&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on August 21, 2018.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -1111,95 +1131,6 @@ It's absolutely difficult to get an offer from such great companies. But even if
 &lt;li&gt;3. if succeed, goto exit; else if too old, goto exit; else goto 1.&lt;/li&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/steps-away-from-california/&quot;&gt;Steps away from California&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on March 22, 2015.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Android power consumption and timing tasks]]></title>
-  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/android-power-consumption-and-timing-tasks/" />
-  <id>http://vliux.me/blog,/android/android-power-consumption-and-timing-tasks</id>
-  <published>2015-02-08T04:42:00+08:00</published>
-  <updated>2015-02-08T04:42:00+08:00</updated>
-  <author>
-    <name>vliux</name>
-    <uri>http://vliux.me</uri>
-    <email>swordmanliuxin@gmail.com</email>
-  </author>
-  <content type="html">On Android platforms, there are about 3 approaches to execute timing tasks so far:
-&lt;li&gt;&lt;strong&gt;Handler or Timer:&lt;/strong&gt;&lt;br&gt;
-    This is suitable for foreground tasks. The timing state can not be sustained once the app process being killed.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AlarmManager:&lt;/strong&gt;&lt;br&gt;
-    Mostly use it to manage background tasks. The timing state is maintained across app process restarts, but not persisted across device reboots. AlarmManager can be used in almost all the circumstances. However, if not without care, it may cause severe power issues.  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;JobScheduler：&lt;/strong&gt;&lt;br&gt;
-    JobScheduler API was introduced with the release of Lollipop to improve the power issues on Android platforms. If the exact time to run a task is not strictly required, use JobScheduler instead of AlarmManager.&lt;/li&gt;
-    
-&lt;h3&gt;1. Handler or Timer&lt;/h3&gt;
-When the app is at foreground interacting with user, use Handler or Timer to schedule timing tasks. If the app process is killed, we need to re-schedule the tasks. From the perspective of battery power, app developers need to make the schedule frequency as low as possible, and always remeber to cancel existing schedules while not needed any more as early as possible.    
-
-&lt;h3&gt;2. AlarmManager&lt;/h3&gt;
-With AlarmManager, Android system can invoke app components at single or multiple time spots to execute tasks. At the point of execution, if app process is not exist yet, Android creates it first and then triggers the the relevant components.
-
-&lt;h5&gt;2.1 Exact and InExact modes&lt;/h5&gt;
-In AlarmManager API, there are two modes at the point of when tasks will be triggered:
-&lt;li&gt;&lt;strong&gt;Exact mode:&lt;/strong&gt;&lt;br&gt;
-    The time when a task will be started is as precisely accurate as scheduled. &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;InExact mode:&lt;/strong&gt;&lt;br&gt;
-    In order to reserve battery, Android may defer the task properly based on the scheduling parameter, so that a task can be executed in batch with other tasks. &lt;/li&gt;
-The exsiting of the two modes is a combination of business requirements and power conservation consideration. Android may put the device into low-power sleeping status if there has been no user interaction for a given time (we don't consider the case there are additional WakeLocks accquired). Assume there are 3 timing tasks registered with AlarmManager, all of which can wake up the device (WAKEUP type, see the next chapter) with different execution time. In case all of them are set as Exact mode, then the device will be waken up 3 times, entering sleep state after one task, until waken up again by next task. But if they are InExact mode tasks, Android system may be able to merge them so that the device may be waken up only once, in which all of the 3 tasks are executed; or the device keeps sleeping until there is any user interaction which gives the chance the run the tasks. In such cases the wake-up times of InExact mode is dynamically reduced, effectively preserves the battery power.
-&lt;br&gt;&lt;br&gt;
-There are multiple methods in AlarmManager for scheduling a task:
-&lt;table border=&quot;1&quot; style=&quot;width:100%&quot;&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Method&lt;/th&gt;&lt;th&gt;Before KitKat&lt;/th&gt;&lt;th&gt;Since KitKat&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;set()&lt;/td&gt;&lt;td&gt;Exact&lt;/td&gt;&lt;td&gt;InExact&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;setExact()&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Exact&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;setInexactRepeating()&lt;/td&gt;&lt;td&gt;InExact&lt;/td&gt;&lt;td&gt;InExact&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;setRepeating()&lt;/td&gt;&lt;td&gt;Exact&lt;/td&gt;&lt;td&gt;InExact&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;setWindow()&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;InExact in range&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-&lt;br&gt;&lt;br&gt;
-
-All the repeating tasks are set as InExact mode since KitKat. If we need precise triggering time, use setExact() to set the next start time inside each execution. The impact on battery power is much more severe for repeating tasks comparing with single time tasks if the interval is set too short. It is believed to be the reason that Google changes the behavior of scheduling repeating tasks.
-&lt;br&gt;&lt;br&gt;
-Additionally, besides Exact and InExact, setWindow() provides an intermediate mode. The method provides two long parameters to define a time window. Android ensures a task will be executed at some point inside that window, not outside it. In case the control of InExact mode is too loose while Exact mode is too strict for business requirements, consider using setWindow().
-
-&lt;h5&gt;2.2 Wakeup and Non-wakeup tasks&lt;/h5&gt;
-There are totally 4 types of tasks scheduled by AlarmManager: ELAPSED_REALTIME, ELAPSED_REALTIME_WAKEUP, RTC, RTC_WAKEUP. In addtion to the difference of time calculation, they differs on whether devices can be waken by tasks. For a Wakeup type task, while it is in Exact mode, it is guaranteed to be started at the exact time as scheduled, no matter whether the device was sleeping or not, which is definitely negative to the power resource. We should always avoid using Wakeup types if there is no strict requirement, or any algorithm can be applied to work around.
-
-&lt;h5&gt;2.3 An example&lt;/h5&gt;
-A network provider supplies WiFi access service. As the limitation of server side architecture, they need client side to make the billing. Their initial implementation was to register a background timing task for exact every 15 minutes with setExact(RTC_WAKEUP). However, they got large complains from users that the app drained their device batteries quickly. In order to improve the user experience, they considered both InExact mode. Tasks of InExact mode are not predictable as they may not be triggered for one or even more intervals, which may cause too much business loss. So at final they choose to use setWindow() to solve this issue:
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentMillis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;currentTimeMillis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;setWindow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RTC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentMillis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PendingIntent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-Note that RTC type is used instead of RTC_WAKEUP. As there is no network activity during system sleep, so billing that time-span is meaningless. With the scheduling window, it is assured that billing task will be executed at some points between 15 and 30 minutes later. The solution takes care of both the business requirements and power conservation.
-
-&lt;h3&gt;The principle of JobScheduler&lt;/h3&gt;
-Generally speaking, a task should be started only when all the prerequisites are fulfilled. Under traditional AlarmManager mechanism, Android system wakes up the relevant app components at the triggering point, without any consideration of the prerequisite. There are grealy possibilities that the task discovers that some prerequisites are not fulfilled right after being started. In such a case the task checks the conditions and quits immediatelly, which is totally a waste of power resources. If the prerequisites checking can be moved into a system service(system service process doesn't get killed), any un-fulfilling of conditions eliminates the necessity of app process creation and components activation. This is actually the design of JobScheduler. 
-&lt;br&gt;&lt;br&gt;
-With this design, it's not easy to implement a compatible version of JobScheduler for old Android versions. If we make it the way as AppCompat, then it won't provide any benefit --- the checking of prerequisites is still inside app process, so that Android system still needs to create the app process as the first step no matter whether the conditions are met or not. An negative example of this is the JobSchedulerCompat project (https://github.com/evant/JobSchedulerCompat). The library itself has severe power issues. For Android version less than Lollipop, as it depends greatly on WakefulBroadcastReceivers and WakeLocks, as well as invoking setComponentEnabledSetting(DONT_KILL_APP) which makes the app process less likely to be killed, using the library will consume more power resources, which is a paradox and self-contradiction.
-&lt;br&gt;&lt;br&gt;
-Compared with AlarmManager, JobScheduler has following features:
-&lt;li&gt;&lt;strong&gt;less power consumption:&lt;/strong&gt;&lt;br&gt;
-    It is suitable for background tasks without precise triggering time spots. It's not recommanded for foreground tasks, as the un-predictable of scheduling.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;back-off mechanism:&lt;/strong&gt;&lt;br&gt;
-    set back-off policy with setBackOffCriteria(). However, back-off policy is easy to be confused on repeating tasks, so only applying back-off for single-time tasks.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;scheduling state persistant:&lt;/strong&gt;&lt;br&gt;
-    Tasks registered with AlarmManager will not exist after system reboot. To solve this issue, app develpers must register a receiver for reboots, and register tasks again inside that Receiver. JobScheduler persists the data across device reboots so there is no need to worry about that.
-
-&lt;h3&gt;Summary&lt;/h3&gt;
-For any foreground task, use Handler as it's more simple, intuitive and less likely to be harmful. For background tasks without strict time requirement, use JobScheduler API on Android 5.0, and InExact mode through AlarmManager API on previous Android versions. For background tasks which seems like to be with accurate timing requirement, consider whether the requirement can be degraded by any algorithm with JobScheduler or timing window on AlarmManager. As app developer, we should be sensitive to tasks of both Wakeup type and Exact mode, as it increases the possibility of uninstallation of the app by users greatly.
-
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/android-power-consumption-and-timing-tasks/&quot;&gt;Android power consumption and timing tasks&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on February 08, 2015.&lt;/p&gt;</content>
 </entry>
 
 </feed>
