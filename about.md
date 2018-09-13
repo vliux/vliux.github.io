@@ -6,7 +6,7 @@ gitment: false
 ex_page_id: "about"
 share: false
 ---
-<p>Software engineer | Photographer | Father</p>
+<p>Software engineering | Photography | Drawing</p>
 
 <ul>
 	<li>Email <a href="mailto:swordmanliuxin@gmail.com">swordmanliuxin@gmail.com</a></li>

@@ -1,0 +1,22 @@
+---
+layout: page
+title:  " 侠路漫漫 "
+date:   2018-09-13 18:15
+categories: Drawing
+comments: true
+head_image: /images/p/180913/a.jpg
+description: nil
+---
+
+<p>
+"<br/>
+侠路漫漫<br/>
+知易行难<br/>
+知难行易<br/>
+"
+</p>
+
+<p>
+行侠仗义的路漫长又不好走。侠义这两个字说起来容易做起来很难，只有做到知行合一，才能成为真正的大侠。
+</p>
+{% gimg 180913/b.jpg %}

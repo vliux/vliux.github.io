@@ -35,7 +35,9 @@ gitment:
 links:
   - title: Home
     url: /home
-  - title: Photo & Life
+  - title: Drawings
+    url: /draw
+  - title: Photos
     url: /gallery
   - title: Tech
     url: /blog

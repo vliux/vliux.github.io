@@ -1,0 +1,14 @@
+---
+layout: page
+title:  "Pen draw - JingGu"
+date:   2018-08-21 21:30
+categories: Drawing
+comments: true
+head_image: /images/p/180821/1.jpg
+description: nil
+---
+
+<p>JingGu is neither a decent nor negative character in the yet unknown story.
+<br/>Pen draw by Xin Liu at Aug 2018</p>
+
+{% gimg 180821/1.jpg %}
