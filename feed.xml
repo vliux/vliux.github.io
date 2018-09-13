@@ -5,7 +5,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://vliux.me/feed.xml" />
 <link rel="alternate" type="text/html" href="http://vliux.me" />
-<updated>2018-08-21T21:40:52+08:00</updated>
+<updated>2018-09-13T21:54:46+08:00</updated>
 <id>http://vliux.me/</id>
 <author>
   <name>vliux</name>
@@ -15,9 +15,37 @@
 
 
 <entry>
+  <title type="html"><![CDATA[ 侠路漫漫 ]]></title>
+  <link rel="alternate" type="text/html" href="http://vliux.me/drawing/xialumanman/" />
+  <id>http://vliux.me/drawing/xialumanman</id>
+  <published>2018-09-13T18:15:00+08:00</published>
+  <updated>2018-09-13T18:15:00+08:00</updated>
+  <author>
+    <name>vliux</name>
+    <uri>http://vliux.me</uri>
+    <email>swordmanliuxin@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;
+&quot;&lt;br/&gt;
+侠路漫漫&lt;br/&gt;
+知易行难&lt;br/&gt;
+知难行易&lt;br/&gt;
+&quot;
+&lt;/p&gt;
+
+&lt;p&gt;
+行侠仗义的路漫长又不好走。侠义这两个字说起来容易做起来很难，只有做到知行合一，才能成为真正的大侠。
+&lt;/p&gt;
+&lt;a href=&quot;/images/p/180913/b.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/180913/b.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/drawing/xialumanman/&quot;&gt; 侠路漫漫 &lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on September 13, 2018.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Pen draw - JingGu]]></title>
-  <link rel="alternate" type="text/html" href="http://vliux.me/gallery/jinggu/" />
-  <id>http://vliux.me/gallery/jinggu</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/drawing/jinggu/" />
+  <id>http://vliux.me/drawing/jinggu</id>
   <published>2018-08-21T21:30:00+08:00</published>
   <updated>2018-08-21T21:30:00+08:00</updated>
   <author>
@@ -30,14 +58,14 @@
 
 &lt;a href=&quot;/images/p/180821/1.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/180821/1.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/jinggu/&quot;&gt;Pen draw - JingGu&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on August 21, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/drawing/jinggu/&quot;&gt;Pen draw - JingGu&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on August 21, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Pen draw - Dara]]></title>
-  <link rel="alternate" type="text/html" href="http://vliux.me/gallery/dara/" />
-  <id>http://vliux.me/gallery/dara</id>
+  <link rel="alternate" type="text/html" href="http://vliux.me/drawing/dara/" />
+  <id>http://vliux.me/drawing/dara</id>
   <published>2018-08-04T18:15:00+08:00</published>
   <updated>2018-08-04T18:15:00+08:00</updated>
   <author>
@@ -50,7 +78,7 @@
 
 &lt;a href=&quot;/images/p/180804/dara.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/180804/dara.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/dara/&quot;&gt;Pen draw - Dara&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on August 04, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/drawing/dara/&quot;&gt;Pen draw - Dara&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on August 04, 2018.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1097,40 +1125,6 @@ Life is beautiful, even for the most tiny ones.
 
 
   &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/lives-around-us/&quot;&gt;Lives around us&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on May 23, 2015.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Steps away from California]]></title>
-  <link rel="alternate" type="text/html" href="http://vliux.me/blog,/android/steps-away-from-california/" />
-  <id>http://vliux.me/blog,/android/steps-away-from-california</id>
-  <published>2015-03-22T06:04:00+08:00</published>
-  <updated>2015-03-22T06:04:00+08:00</updated>
-  <author>
-    <name>vliux</name>
-    <uri>http://vliux.me</uri>
-    <email>swordmanliuxin@gmail.com</email>
-  </author>
-  <content type="html">Last year I took on-site interview visits to two of the most greatest tech companies in the bay area. Being spent in California about two weeks and talked with so many talented geeks, I think there should be something for me that can be memorized.
-
-&lt;h3&gt;Test, test and test&lt;/h3&gt;
-We may think that testing is the work for testers, we may start coding ASAP and think about testing when it is finished, we may ....
---- all kinds of bad habits in modern software engineering. Writing code with avoidable bugs wastes both our and other's time. It's our software developer's responsibility to deliever bug-free code at first time. So please consider test cases once the software architecture and interfaces have been defined. Run test cases whenever any code is changed so that no regression can be made. 
-&lt;br&gt;&lt;br&gt;
-Another benifit of construct test cases as the 1st priority is that, for complicated code logic, test cases lead us to find the solution.So once get stuck, think several test cases and it makes everything clear.
-
-&lt;h3&gt;Keep practicing, keep young, all my life&lt;/h3&gt;
-No matter how many years we have worked as software engineers, we need to keep our brain activated all the time. Brain is actually quite lazy so it's easy to be content to current state, to lost interests and care nothing. Whenever we find any software interesting, think about how it works, how to design and implement it if we are the developers, think about any algorithm which it may apply, think whether the alogrithms can be used in any project we taking ... Don't limit only to your expertise area (for me it's Android), there are always something to be learn from outside that.
-&lt;br&gt;&lt;br&gt;
-Software programming seems to be a kind of brain-based work. However it's not true, with a well-organized body benefits a lot, at least during the interviews. Both of the companies have 2 phone screens and 5 on-site face-to-face interviews. Each interview takes about 45-60 minutes with 1-2 coding questions and there is almost no rest time during interview rounds. That means during the 4-5 hours there is only a 30 minutes break for lunch, which is a very heavy pressure on brain. For international interviewee it is much worse because we also have to fight with jet-lag. So keep physical practicing all the life, then we can be strong enough to deal with the pressure which leads to career succeess.
-
-&lt;h3&gt;You are you&lt;/h3&gt;
-It's absolutely difficult to get an offer from such great companies. But even if you fail, it doesn't mean you are bad. There are reasons for you to be given the interview opportunities. So keeps the loop after failure until succeed:
-&lt;li&gt;1. Test, test and test&lt;/li&gt;
-&lt;li&gt;2. Keep practicing, keep young, all my life&lt;/li&gt;
-&lt;li&gt;3. if succeed, goto exit; else if too old, goto exit; else goto 1.&lt;/li&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/android/steps-away-from-california/&quot;&gt;Steps away from California&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on March 22, 2015.&lt;/p&gt;</content>
 </entry>
 
 </feed>

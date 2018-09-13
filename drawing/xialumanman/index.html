@@ -1,13 +1,15 @@
+
+
 <meta charset="utf-8">
-<title>Android /proc file systemß &#8211; By vliux.me</title>
-<meta name="description" content="">
+<title> 侠路漫漫  &#8211; By vliux.me</title>
+<meta name="description" content="nil">
 <meta name="keywords" content="">
 
 
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Android /proc file systemß &#8211; By vliux.me">
-<meta property="og:description" content="I attended AnDevCon Boston 2015 weeks ago. Compared with Google IO, it's much more like a training camp combined with...">
-<meta property="og:url" content="http://vliux.me/blog,/android/proc/android-procs/">
+<meta property="og:title" content=" 侠路漫漫  &#8211; By vliux.me">
+<meta property="og:description" content="nil">
+<meta property="og:url" content="http://vliux.me/drawing/xialumanman/">
 <meta property="og:site_name" content="By vliux.me">
 
 
@@ -101,18 +103,21 @@
 <!-- tencent analysis -->
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=61337454" charset="UTF-8"></script>
 
-<section class="article">
+<section class="article pad-top">
+
+
+
       <article class="wrap post">
         <header class="post-header">
           <hgroup>
-            <h1>Android /proc file systemß</h1>
-            <p class="date">Aug 16, 2015</p>
-            <p class="intro"></p>
+            <h1> 侠路漫漫 </h1>
+            <!-- <p class="intro">nil</p> -->
+
           </hgroup>
         </header>
-        
-        
-          <div class="bdsharebuttonbox">
+
+      
+        <div class="bdsharebuttonbox">
 	<a href="#" class="bds_more" data-cmd="more"></a>
 	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
 	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
@@ -120,63 +125,26 @@
 	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
 	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{},"image":{"viewList":["weixin","tsina","sqq","fbook","twi"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","tsina","sqq","fbook","twi"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-        
+      
 
-        <br/>
-        <div class="content">
-            I attended AnDevCon Boston 2015 weeks ago. Compared with Google IO, it's much more like a training camp combined with some company advertisements. Fortunately I met Jonathan Levin who is the author of "Android Internals". The content of this blog is mainly from his speech in the conference.
-<br><br>
+      <br/>
+      <p>
+"<br/>
+侠路漫漫<br/>
+知易行难<br/>
+知难行易<br/>
+"
+</p>
 
-The /proc file system in Android is in a standard format. That is to say, compared with /sys, its content are equal across different Android devices, so it's safe to have dependencies on /proc in you Android app. Lots of the files under this directory are useful for helping identifying Android app performance issues.
-<br><br>
+<p>
+行侠仗义的路漫长又不好走。侠义这两个字说起来容易做起来很难，只有做到知行合一，才能成为真正的大侠。
+</p>
+<a href="/images/p/180913/b.jpg" target="_blank"><img src="/images/p/180913/b.jpg" alt="GIMG"/></a>
 
-We all know that process information is inside /proc/PID. In fact, Linux kernel doesn't have any concept of process. Instead, it cares about thread-group, which is normally named "TGID". When a new thread group (process) is created/forked, kernel assign a new TGID, and the first thread (UI thread in Android) has the same number of TID as TGID. Information about a thread of a given process can be found at /proc/PID/task/TID. If you get into this dir you will find that it has the exact same structure as /proc/PID. 
-The interesting thing is that each thread, which is regarded as "task", is sensible by Linux kernel, so you can directly reach them from /proc.
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="err">#</span> <span class="n">cd</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">TID</span>
-<span class="c1">// succed, that means /proc/FOO isn't necessarily a process.</span></code></pre></figure>
-But if you try:
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="err">#</span> <span class="n">ls</span> <span class="o">/</span><span class="n">proc</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">&lt;</span><span class="n">TID</span><span class="o">&gt;</span>
-<span class="c1">// no match</span></code></pre></figure>
-
-<h3>memory related</h3>
-With /proc/PID/status you can get lots of detail about the process. I need to point out that 'Pid' and 'Tgid' in this file are quit comfusing. In fact the field 'Tgid' is what we think as PID (process ID); while 'Pid' is actually the thread/task ID. Other useful fields in this file for the app developer:
-<ul>
-<li>State: S(sleeping), R(running), T(stopped), D(uninterruptable sleep)</li>
-<li>TracerPid: any ptrace attached process, like strace or gdb</li>
-<li>VmHWN: RSS peak usage (hight-water mark)</li>
-<li>VmRSS: current RSS usage</li>
-<li>VmPeak: virtual memory hight-water mark</li>
-<li>VmSize: current virtual memory</li>
-<li>VmData: size of data segment(heap)</li>
-<li>VmStk: size of thread stacks</li>
-<li>VmExe: size of executable</li>
-<li>VmLib: shared library usage</li>
-<li>VmPTE: page table entries</li>
-<li>Threads: number of threads</li>
-<li>Cpus_allowed: bitmask of CPUS allowed</li>
-<li>voluntary_ctxt_switches: voluntray (system call induced) context switches</li>
-<li>novoluntary_ctxt_switches: nonvoluntary(preemption induced) context switches</li>
-</ul>
-The same values are also stored in machine-readable format in /proc/PID/stat, if you want to obtain these values. 
-<br><br>
-/proc/PID/maps also stores the memory space occupied by different sections (libraries, stacks, heap, ...). More information can be found in /proc/PID/smaps, like RSS, PSS, clean/dirty memory usage for each section. 
-
-<h3>oom_score</h3>
-The kernel scores of the memory usage of each process, and will kill some processes if the system is in low memory. The score for each process is stored in /proc/PID/oom_score. The higher the value it is, the more possible your process will be killed. The score can be adjusted by /proc/PID/oom_adj or oom_score_adj, with different value range (-1000 to 1000 for oom_score_adj). I'm not sure the exact difference between them, but it seems that oom_score_adj which was introduced in Linux kernel 2.6.36, is newer than oom_adj. If the system specify a nagative value in any of these files, the related process is not likely to be terminated, so you may see very large negative value (-1000 etc.) specified for many system services. From an app developer's perspective, by comparing the values in oom_score for all the processes, we can forecast whether our app are more likely to be recycled in the near future.
-
-<h3>fd</h3>
-All the file descriptors opened by current process can be found in /proc/PID/fd. So as the app developer, if you'd like to investigate which files are currently opened, take a look into this directory. For each file named N in 'fd', you can find the offset of the file descriptor in the file as well as the flag from /proc/PID/fdinfo/N.
-<br><br>
-
-As Jonathan mentioned, getting familiar with these file systems like /proc and /sys "just opens a door to the broad Linux world" for our app developers. With this knowledge we are not limited to the SDK framework. Hopefully I will use any of the knowledge in my Hurdle project --- by plugin it into your Android application, you can easily detect many performance issues. (shameless advertisement!)
-
-
-
-        </div>
-        <br/>
-
-        
-          <div class="bdsharebuttonbox">
+      <br/>
+      
+      
+        <div class="bdsharebuttonbox">
 	<a href="#" class="bds_more" data-cmd="more"></a>
 	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
 	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
@@ -184,28 +152,27 @@ As Jonathan mentioned, getting familiar with these file systems like /proc and /
 	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
 	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a></div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{},"image":{"viewList":["weixin","tsina","sqq","fbook","twi"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","tsina","sqq","fbook","twi"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-        
+      
 
-        <!-- gitment comment -->
-        
-          <div id="container"></div>
-          <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-          <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-          <script>
-            var gitment = new Gitment({
-            owner: 'vliux',
-            repo: 'vliux.github.io_gitment',
-            oauth: {
-              client_id: '8a5fb88f646b2bfec025',
-              client_secret: 'c4a2a75b7377e5fde416fca7baffd4cb6197c58a',
-            },
-            })
-            gitment.render('container')
-          </script>
-        
+      <!-- gitment comment -->
+      
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+          var gitment = new Gitment({
+          owner: 'vliux',
+          repo: 'vliux.github.io_gitment',
+          oauth: {
+            client_id: '8a5fb88f646b2bfec025',
+            client_secret: 'c4a2a75b7377e5fde416fca7baffd4cb6197c58a',
+          },
+          })
+          gitment.render('container')
+        </script>
+      
 
       </article>
-
     </section>
 </div>
 
