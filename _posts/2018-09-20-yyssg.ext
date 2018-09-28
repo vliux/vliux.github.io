@@ -1,0 +1,11 @@
+---
+layout: page
+title:  "[最后的游侠]杨雨vs四手怪"
+date:   2018-09-20 15:00
+categories: Drawing
+comments: true
+head_image: /images/p/180920/h.jpg
+description: nil
+---
+
+{% gimg 180920/f.jpg %}

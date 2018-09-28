@@ -1,0 +1,13 @@
+---
+layout: page
+title:  "[最后的游侠]光明使者"
+date:   2018-09-28 15:15
+categories: Drawing
+comments: true
+head_image: /images/p/180928/h.jpg
+description: nil
+---
+
+<p>
+“此心光明，亦复何言” -- 王阳明</p>
+{% gimg 180928/f.jpg %}
