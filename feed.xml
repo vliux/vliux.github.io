@@ -5,13 +5,34 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://vliux.me/feed.xml" />
 <link rel="alternate" type="text/html" href="http://vliux.me" />
-<updated>2018-09-28T15:22:31+08:00</updated>
+<updated>2018-10-07T15:33:26+08:00</updated>
 <id>http://vliux.me/</id>
 <author>
   <name>vliux</name>
   <uri>http://vliux.me/</uri>
   <email>swordmanliuxin@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[[最后的游侠]勇气]]></title>
+  <link rel="alternate" type="text/html" href="http://vliux.me/drawing/bravery/" />
+  <id>http://vliux.me/drawing/bravery</id>
+  <published>2018-10-07T15:30:00+08:00</published>
+  <updated>2018-10-07T15:30:00+08:00</updated>
+  <author>
+    <name>vliux</name>
+    <uri>http://vliux.me</uri>
+    <email>swordmanliuxin@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;“勇气是一个人处于逆境中的光明” -- 华福纳格&lt;/p&gt;
+&lt;p&gt;“有德必有勇，正直的人绝不胆怯” -- 莎士比亚&lt;/p&gt;
+&lt;p&gt;“勇者发怒，抽刃向更强者；...” -- 鲁迅&lt;/p&gt;
+
+&lt;a href=&quot;/images/p/181007/l.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/images/p/181007/l.jpg&quot; alt=&quot;GIMG&quot;/&gt;&lt;/a&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://vliux.me/drawing/bravery/&quot;&gt;[最后的游侠]勇气&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on October 07, 2018.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -992,97 +1013,6 @@ For an overrided method, it has the same slot value for both the super and deriv
 Fix this problem is not as easy as finding the root cause. The invokeNative() method obtains the class from the object(which is the class definition of the derived class), which prevents any solution from the Java level. In our project we have composed a native method which is similar with invokeNative(), but instead it fetchs the super class definition. If you have any better solution, don't hesitate to tell me :)
 
   &lt;p&gt;&lt;a href=&quot;http://vliux.me/blog,/dalvik/android/reflection/invoke-super/&quot;&gt;Invoke super method with reflection&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on July 10, 2015.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[九寨沟]]></title>
-  <link rel="alternate" type="text/html" href="http://vliux.me/gallery/jiuzhai/" />
-  <id>http://vliux.me/gallery/jiuzhai</id>
-  <published>2015-06-28T01:31:00+08:00</published>
-  <updated>2015-06-28T01:31:00+08:00</updated>
-  <author>
-    <name>vliux</name>
-    <uri>http://vliux.me</uri>
-    <email>swordmanliuxin@gmail.com</email>
-  </author>
-  <content type="html">As submerged by grey modern city, I can't forget the blue water of Jiuzhai Valley, and the wide green of Ruoergai prairie. 
-&lt;br&gt;&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7269.JPG' alt='' width=''/&gt;
-Huanglong
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7370.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7456.JPG' alt='' width=''/&gt;
-Wordless blue water
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7464.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7469.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7476.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7490.JPG' alt='' width=''/&gt;
-Rhinoceros lake
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7592.JPG' alt='' width=''/&gt;
-Long lake
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7683.JPG' alt='' width=''/&gt;
-Arrow bamboo lake
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7695.JPG' alt='' width=''/&gt;
-Panda lake
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7726.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7761.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7854.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7880.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_7990.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_8013.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_8056.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_8062.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_8085.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_8103.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-&lt;img src='/images/gallery/jiuzhai/IMG_8112.JPG' alt='' width=''/&gt;
-&lt;br&gt;
-
-
-
-
-
-  &lt;p&gt;&lt;a href=&quot;http://vliux.me/gallery/jiuzhai/&quot;&gt;九寨沟&lt;/a&gt; was originally published by vliux at &lt;a href=&quot;http://vliux.me&quot;&gt;By vliux.me&lt;/a&gt; on June 28, 2015.&lt;/p&gt;</content>
 </entry>
 
 </feed>
