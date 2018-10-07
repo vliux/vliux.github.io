@@ -1,0 +1,15 @@
+---
+layout: page
+title:  "[最后的游侠]勇气"
+date:   2018-10-07 15:30
+categories: Drawing
+comments: true
+head_image: /images/p/181007/h.jpg
+description: nil
+---
+
+<p>“勇气是一个人处于逆境中的光明” -- 华福纳格</p>
+<p>“有德必有勇，正直的人绝不胆怯” -- 莎士比亚</p>
+<p>“勇者发怒，抽刃向更强者；...” -- 鲁迅</p>
+
+{% gimg 181007/l.jpg %}
