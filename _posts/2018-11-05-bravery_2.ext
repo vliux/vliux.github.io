@@ -1,0 +1,11 @@
+---
+layout: page
+title:  "[最后的游侠]Bravery_2"
+date:   2018-11-05 15:30
+categories: Drawing
+comments: true
+head_image: /images/p/181105/h.jpg
+description: nil
+---
+
+{% gimg 181105/l.jpg %}
